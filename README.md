@@ -1,0 +1,2 @@
+# Ulrich_Nord_KI_Beauftragter_Quiz
+Für Teilnehmerinnen und Teilnehmer verfügbares Quiz zur lernerfolgskontrolle
