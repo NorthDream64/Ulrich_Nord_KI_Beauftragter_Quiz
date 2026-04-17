@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WellSeal — Die ersten 100 Tage</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #f8f7f4;
+    --surface: #ffffff;
+    --surface-alt: #f2f1ee;
+    --border: #e2e0db;
+    --border-strong: #c8c5be;
+    --text: #1a1916;
+    --text-mid: #4a4843;
+    --text-soft: #8a8782;
+    --accent: #2c4a6e;
+    --accent-light: #eef2f7;
+    --tag-bg: #efefec;
+    --tag-text: #5a5855;
+    --radius: 12px;
+    --radius-sm: 7px;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 2rem 1rem 4rem;
+  }
+
+  #app {
+    max-width: 660px;
+    margin: 0 auto;
+  }
+
+  /* Header */
+  .hdr {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1.25rem;
+    margin-bottom: 2rem;
+  }
+  .hdr-eyebrow {
+    font-size: 10px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--text-soft);
+    margin-bottom: 4px;
+  }
+  .hdr-title {
+    font-family: 'Lora', serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 1rem;
+  }
+  .progress-wrap {
+    height: 2px;
+    background: var(--border);
+    border-radius: 2px;
+    margin-bottom: 5px;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 2px;
+    transition: width .6s ease;
+  }
+  .progress-label {
+    font-size: 11px;
+    color: var(--text-soft);
+  }
+
+  /* Conversation */
+  #conv { margin-bottom: 1.5rem; }
+
+  .bubble-heinrich {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+    margin-bottom: 1rem;
+  }
+  .bubble-speaker {
+    font-size: 10px;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    color: var(--text-soft);
+    margin-bottom: 8px;
+  }
+  .bubble-text {
+    font-family: 'Lora', serif;
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--text);
+  }
+  .bubble-situation {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--text-mid);
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+  }
+
+  .bubble-player {
+    background: var(--accent-light);
+    border: 1px solid #d4dfe9;
+    border-radius: var(--radius);
+    padding: .875rem 1.1rem;
+    margin-bottom: .5rem;
+    text-align: right;
+  }
+  .bubble-player .bubble-speaker { text-align: right; }
+  .bubble-player-text {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--text);
+    font-style: italic;
+    text-align: right;
+  }
+
+  .analyse-strip {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding: .625rem 1rem;
+    background: var(--surface-alt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    margin-bottom: 1rem;
+  }
+  .analyse-item { flex: 1; min-width: 100px; }
+  .analyse-lbl {
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: .07em;
+    color: var(--text-soft);
+    display: block;
+    margin-bottom: 3px;
+  }
+  .analyse-val {
+    font-size: 12px;
+    color: var(--text-mid);
+  }
+  .tag {
+    display: inline-block;
+    font-size: 10px;
+    background: var(--tag-bg);
+    color: var(--tag-text);
+    border-radius: 4px;
+    padding: 2px 7px;
+    margin: 2px 2px 0 0;
+  }
+
+  /* Input */
+  .input-section { margin-top: 1.5rem; }
+  .input-label {
+    font-size: 10px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--text-soft);
+    margin-bottom: .5rem;
+    display: block;
+  }
+  textarea {
+    width: 100%;
+    min-height: 120px;
+    padding: .875rem 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--text);
+    background: var(--surface);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius);
+    resize: vertical;
+    outline: none;
+    transition: border-color .15s;
+  }
+  textarea:focus { border-color: var(--accent); }
+  textarea::placeholder { color: var(--text-soft); font-style: italic; }
+  .input-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+  }
+  .char-count { font-size: 11px; color: var(--text-soft); }
+  .hint { font-size: 11px; color: var(--text-soft); }
+
+  .submit-btn {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: .6rem 1.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: opacity .15s, transform .1s;
+  }
+  .submit-btn:hover { opacity: .88; }
+  .submit-btn:active { transform: scale(.98); }
+  .submit-btn:disabled { opacity: .35; cursor: not-allowed; }
+
+  /* Loading */
+  .loading {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: .875rem 0;
+    color: var(--text-soft);
+    font-size: 13px;
+  }
+  .dot {
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--text-soft);
+    animation: pulse 1.2s infinite;
+  }
+  .dot:nth-child(2) { animation-delay: .2s; }
+  .dot:nth-child(3) { animation-delay: .4s; }
+  @keyframes pulse { 0%,80%,100%{opacity:.2} 40%{opacity:1} }
+
+  /* Final */
+  .final-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    margin-top: .5rem;
+  }
+  .final-eyebrow {
+    font-size: 10px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--text-soft);
+    margin-bottom: .75rem;
+  }
+  .final-text {
+    font-size: 14px;
+    line-height: 1.75;
+    color: var(--text-mid);
+    margin-bottom: 1.25rem;
+  }
+  .profil-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+  }
+  .profil-col-lbl {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: .07em;
+    color: var(--text-soft);
+    margin-bottom: 6px;
+    display: block;
+  }
+  .profil-tag {
+    display: block;
+    font-size: 12px;
+    background: var(--tag-bg);
+    color: var(--tag-text);
+    border-radius: var(--radius-sm);
+    padding: 4px 10px;
+    margin-bottom: 4px;
+  }
+
+  .restart-btn {
+    margin-top: 1.5rem;
+    background: transparent;
+    color: var(--text-mid);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-sm);
+    padding: .5rem 1.25rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background .12s;
+  }
+  .restart-btn:hover { background: var(--surface-alt); }
+
+  /* API key field (for deployment) */
+  .api-notice {
+    font-size: 11px;
+    color: var(--text-soft);
+    background: var(--surface-alt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: .5rem .875rem;
+    margin-bottom: 1.5rem;
+    display: none;
+  }
+
+  .log-section {
+    margin-top: 1.5rem;
+    padding: 1.25rem;
+    background: var(--surface-alt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+  }
+  .log-label {
+    font-size: 10px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--text-soft);
+    margin-bottom: 4px;
+  }
+  .log-hint {
+    font-size: 12px;
+    color: var(--text-mid);
+    margin-bottom: .875rem;
+    line-height: 1.5;
+  }
+  .log-row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  .log-row input {
+    flex: 1;
+    padding: .5rem .875rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+    color: var(--text);
+    outline: none;
+  }
+  .log-row input:focus { border-color: var(--accent); }
+  .log-btn {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: .5rem 1.1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .log-btn:hover { opacity: .85; }
+  .log-btn:disabled { opacity: .4; cursor: not-allowed; }
+  .log-status {
+    font-size: 12px;
+    margin-top: 6px;
+    min-height: 16px;
+    color: var(--text-soft);
+  }
+  .log-clip-btn {
+    margin-top: 8px;
+    background: transparent;
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-sm);
+    padding: .375rem .875rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    color: var(--text-mid);
+    cursor: pointer;
+  }
+  .log-clip-btn:hover { background: var(--surface); }
+
+
+  /* API Key Gate */
+  #key-gate {
+    max-width: 480px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+  }
+  .key-gate-eyebrow {
+    font-size: 10px; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--text-soft); margin-bottom: 4px;
+  }
+  .key-gate-title {
+    font-family: 'Lora', serif; font-size: 18px; font-weight: 500;
+    color: var(--text); margin-bottom: .75rem;
+  }
+  .key-gate-hint {
+    font-size: 12px; color: var(--text-mid); line-height: 1.6;
+    margin-bottom: 1.25rem;
+  }
+  .key-gate-hint a { color: var(--accent); }
+  .key-gate-row { display: flex; gap: 8px; }
+  #key-input {
+    flex: 1; padding: .5rem .875rem;
+    font-family: 'DM Sans', sans-serif; font-size: 13px;
+    border: 1px solid var(--border-strong); border-radius: var(--radius-sm);
+    background: var(--surface); color: var(--text); outline: none;
+  }
+  #key-input:focus { border-color: var(--accent); }
+  .key-gate-btn {
+    background: var(--accent); color: #fff; border: none;
+    border-radius: var(--radius-sm); padding: .5rem 1.1rem;
+    font-family: 'DM Sans', sans-serif; font-size: 13px; cursor: pointer;
+  }
+  .key-gate-btn:hover { opacity: .85; }
+  .key-error { font-size: 12px; color: #c0392b; margin-top: 6px; min-height: 16px; }
+  .key-gate-skip {
+    font-size: 11px; color: var(--text-soft); margin-top: 10px;
+    background: none; border: none; cursor: pointer; padding: 0; text-decoration: underline;
+  }
+
+</style>
+</head>
+<body>
+<!-- API Key Gate — shown when no key is configured -->
+<div id="key-gate" style="display:none">
+  <p class="key-gate-eyebrow">WellSeal GmbH · Simulation</p>
+  <h2 class="key-gate-title">API-Zugang einrichten</h2>
+  <p class="key-gate-hint">
+    Für den lokalen Betrieb wird ein Anthropic API-Key benötigt.<br>
+    Erhältlich unter <a href="https://console.anthropic.com" target="_blank">console.anthropic.com</a> →
+    API Keys. Der Key wird nur für diese Sitzung gespeichert.
+  </p>
+  <div class="key-gate-row">
+    <input type="password" id="key-input" placeholder="sk-ant-..." autocomplete="off" />
+    <button class="key-gate-btn" onclick="submitKey()">Starten →</button>
+  </div>
+  <p class="key-error" id="key-error"></p>
+  <button class="key-gate-skip" onclick="skipKey()">Ohne Key fortfahren (nur claude.ai)</button>
+</div>
+
+<div id="app" style="display:none">
+  <div class="hdr">
+    <p class="hdr-eyebrow">WellSeal GmbH · Bremen · Vorstellungsgespräch</p>
+    <h1 class="hdr-title">KI-Beauftragter — Die ersten 100 Tage</h1>
+    <div class="progress-wrap"><div class="progress-fill" id="prog" style="width:5%"></div></div>
+    <p class="progress-label" id="phase-lbl">Eröffnungsgespräch</p>
+  </div>
+
+  <!-- For standalone deployment: set API_KEY variable below -->
+  <p class="api-notice" id="api-notice">Standalone-Modus: API-Key in der HTML-Datei setzen.</p>
+
+  <div id="conv"></div>
+
+  <div class="loading" id="loading" style="display:none">
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    <span>Michaela Simons überlegt...</span>
+  </div>
+
+  <div class="input-section" id="input-section">
+    <label class="input-label" for="ta">Ihre Antwort</label>
+    <textarea id="ta" placeholder="Beschreiben Sie Ihren Ansatz für die ersten 100 Tage als KI-Beauftragter bei WellSeal..."></textarea>
+    <div class="input-footer">
+      <span class="char-count" id="char-count">0 Zeichen · Strg+Enter zum Absenden</span>
+      <button class="submit-btn" id="submit-btn" disabled onclick="handleSubmit()">Antworten →</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── Optional: hardcode key for deployment (leave null for key-gate) ──
+const HARDCODED_KEY = null;
+// ── Google Sheets logging ─────────────────────────────────────────────
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwTfP8ygOun58rmvY9hQXFmPEgVyxppQGEPYjar1e78N6uanaGHuzBNOyU5P4kgvmz7/exec';
+// ─────────────────────────────────────────────────────────────────────
+
+// Resolved at runtime: hardcoded > sessionStorage > null
+function getApiKey() {
+  return HARDCODED_KEY || sessionStorage.getItem('ws_api_key') || null;
+}
+
+function submitKey() {
+  const val = document.getElementById('key-input').value.trim();
+  if (!val.startsWith('sk-')) {
+    document.getElementById('key-error').textContent = 'Ungültiges Format — Key beginnt mit sk-';
+    return;
+  }
+  sessionStorage.setItem('ws_api_key', val);
+  showApp();
+}
+
+function skipKey() {
+  showApp();
+}
+
+function showApp() {
+  document.getElementById('key-gate').style.display = 'none';
+  document.getElementById('app').style.display = 'block';
+  init();
+}
+
+// Startup: show gate only if no key available
+window.addEventListener('DOMContentLoaded', function() {
+  if (getApiKey()) {
+    showApp();
+  } else {
+    document.getElementById('key-gate').style.display = 'block';
+    document.getElementById('key-input').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') submitKey();
+    });
+  }
+});
+
+const SYSTEM_PROMPT = `Du bist Michaela Simons, Geschäftsführerin der WellSeal GmbH in Bremen.
+
+UNTERNEHMENSKONTEXT:
+- Schiffszulieferer, 500 Mitarbeitende, Hauptsitz Bremen, Niederlassungen China (PIPL) + Japan (APPI)
+- IT-Infrastruktur: SAP ERP, Microsoft 365 (Teams, SharePoint)
+- 5 KI-Initiativen: (1) Copilot M365-Einführung, (2) Chatbot Kundenservice, (3) Predictive Maintenance Schiffskomponenten, (4) Compliance-Check-Automatisierung, (5) KI-Agenten Angebotskalkulation
+- Wichtige Stakeholder: CISO Dr. Schreiber (skeptisch, Sicherheitsbedenken), IT-Leiter (pragmatisch), Datenschutzbeauftragter, Seniorgesellschafter (traditionell, KI-skeptisch), junger Führungsnachwuchs (sehr enthusiastisch)
+- Regulatorik: EU AI Act (Betreiberpflichten nach Art. 16 ff.), DSGVO, PIPL China, APPI Japan
+
+DEIN CHARAKTER:
+- Pragmatisch und ergebnisorientiert — du willst Resultate, keine Theorie
+- Unter echtem Wettbewerbsdruck: Konkurrenz setzt KI ein
+- Du schätzt strukturiertes Denken und konkrete Bezüge zu WellSeal
+- Wenig Geduld für vage Antworten ohne regulatorischen oder operativen Bezug
+- Du hast einen guten Instinkt dafür, wer wirklich liefern kann
+
+SPIELSTRUKTUR: 3 Runden — klare Eskalation.
+
+RUNDE 1 (Tage 1-30): Du bist noch im Vorstellungsgespräch. Keine externen Szenarien, keine Stakeholder-Einwürfe.
+Du reagierst auf den ersten Ansatz des Kandidaten und bittest ihn, konkreter zu werden.
+Das "situation"-Feld bleibt LEER (""). Nur deine Nachfrage als Gesprächspartnerin.
+
+RUNDE 2 (Tage 30-60): Das Gespräch vertieft sich. Jetzt kannst du eine reale Komplikation einbringen —
+z.B. einen skeptischen Stakeholder (Dr. Schreiber, Seniorgesellschafterin) oder eine konkrete Entscheidungssituation.
+Das "situation"-Feld beschreibt die neue Herausforderung in 1-2 Sätzen.
+
+RUNDE 3 (Tage 60-100): Abschlussfrage oder Stresstest. is_final = true. final_assessment ausfüllen.
+Das "situation"-Feld bleibt LEER ("").
+
+DEINE AUFGABE PRO RUNDE:
+1. Analysiere die Freitextantwort auf Inhalt, Tiefe und Bezug zu WellSeal
+2. Reagiere als Michaela authentisch in 3-4 Sätzen: wertschätzend, kritisch oder herausfordernd
+3. Runde 1: Stelle NUR eine Vertiefungsfrage — keine neuen Szenarien
+4. Runde 2: Reagiere + bringe eine konkrete Komplikation (situation-Feld)
+5. Extrahiere Stimmung und Konzepte aus der Kandidatenantwort
+
+AUSGABEFORMAT — nur JSON, kein anderer Text, keine Codeblöcke.
+WICHTIG: Alle Strings einzeilig — keine Zeilenumbrüche innerhalb von Anführungszeichen.
+{"michaela_response":"...","situation":"...","phase":"Tage X-Y","is_final":false,"analyse":{"ansatz":"...","tonalitaet":"...","konzepte":["...","...","..."]},"final_assessment":"","final_profil":{"staerken":["...","..."],"entwicklungsfelder":["...","..."]}}`;
+
+const OPENING = "Gut, dann kommen wir direkt zum Kern. Sie bewerben sich als unser erster KI-Beauftragter — eine neu geschaffene Stelle. Wir haben fünf KI-Initiativen in verschiedenen Reifegraden, eine Belegschaft die von sehr enthusiastisch bis offen skeptisch alles abdeckt, und Niederlassungen in China und Japan mit eigenen Datenschutzregimen. Wie sieht Ihr Fahrplan für die ersten 100 Tage aus?";
+
+const PROGRESS_STEPS = [5, 28, 55, 80, 100];
+const PHASE_LABELS = ["Eröffnung", "Tage 1–30", "Tage 30–60", "Tage 60–100", "Abschluss"];
+
+let history = [];
+let round = 0;
+let sessionData = {};
+
+function initSessionData() {
+  sessionData = {
+    runden: [],
+    final_assessment: '',
+    staerken: [],
+    entwicklungsfelder: []
+  };
+}
+
+function setProgress(i) {
+  document.getElementById('prog').style.width = PROGRESS_STEPS[Math.min(i, 4)] + '%';
+  document.getElementById('phase-lbl').textContent = PHASE_LABELS[Math.min(i, 4)];
+}
+
+function addMichaelaBubble(text, situation) {
+  const conv = document.getElementById('conv');
+  const div = document.createElement('div');
+  div.className = 'bubble-heinrich';
+  div.innerHTML = `<p class="bubble-speaker">Michaela Simons</p>
+    <p class="bubble-text">${text}</p>`
+    + (situation ? `<p class="bubble-situation">${situation}</p>` : '');
+  conv.appendChild(div);
+  div.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function addPlayerBubble(text, analyse) {
+  const conv = document.getElementById('conv');
+
+  const ply = document.createElement('div');
+  ply.className = 'bubble-player';
+  ply.innerHTML = `<p class="bubble-speaker">Ihre Antwort</p>
+    <p class="bubble-player-text">${escHtml(text)}</p>`;
+  conv.appendChild(ply);
+
+  if (analyse) {
+    const tags = (analyse.konzepte || []).map(k => `<span class="tag">${escHtml(k)}</span>`).join('');
+    const strip = document.createElement('div');
+    strip.className = 'analyse-strip';
+    strip.innerHTML = `
+      <div class="analyse-item">
+        <span class="analyse-lbl">Ansatz</span>
+        <span class="analyse-val">${escHtml(analyse.ansatz || '—')}</span>
+      </div>
+      <div class="analyse-item">
+        <span class="analyse-lbl">Tonalität</span>
+        <span class="analyse-val">${escHtml(analyse.tonalitaet || '—')}</span>
+      </div>
+      <div class="analyse-item" style="flex:2">
+        <span class="analyse-lbl">Erkannte Konzepte</span>
+        <span class="analyse-val">${tags || '<span class="tag">—</span>'}</span>
+      </div>`;
+    conv.appendChild(strip);
+  }
+}
+
+function renderFinal(assessment, profil) {
+  document.getElementById('input-section').remove();
+  const div = document.createElement('div');
+  div.id = 'final-section';
+  const staerken = (profil?.staerken || []).map(s => `<span class="profil-tag">${escHtml(s)}</span>`).join('');
+  const felder = (profil?.entwicklungsfelder || []).map(s => `<span class="profil-tag">${escHtml(s)}</span>`).join('');
+  div.innerHTML = `
+    <div class="final-card">
+      <p class="final-eyebrow">Gesamteinschätzung von Michaela Simons</p>
+      <p class="final-text">${assessment}</p>
+      ${profil ? `<div class="profil-grid">
+        <div><span class="profil-col-lbl">Stärken</span>${staerken}</div>
+        <div><span class="profil-col-lbl">Entwicklungsfelder</span>${felder}</div>
+      </div>` : ''}
+    </div>
+    <div class="log-section">
+      <p class="log-label">Ergebnis speichern</p>
+      <p class="log-hint">Geben Sie Ihr Kürzel oder Ihren Namen ein, um den Durchlauf in Google Sheets zu speichern.</p>
+      <div class="log-row">
+        <input type="text" id="log-name" placeholder="z. B. TN-07 oder Max M." maxlength="40" />
+        <button class="log-btn" onclick="logToSheets()">Speichern →</button>
+      </div>
+      <p class="log-status" id="log-status"></p>
+      <button class="log-clip-btn" onclick="copyToClipboard()">Kopieren (Zwischenablage)</button>
+    </div>
+    <button class="restart-btn" onclick="init()">↺ Neu starten</button>`;
+  document.getElementById('app').appendChild(div);
+}
+
+function setLoading(on) {
+  document.getElementById('loading').style.display = on ? 'flex' : 'none';
+  const sec = document.getElementById('input-section');
+  if (sec) sec.style.display = on ? 'none' : 'block';
+}
+
+async function callClaude(userText) {
+  history.push({ role: 'user', content: `Runde ${round}. Antwort des Kandidaten: "${userText}"` });
+
+  const headers = { 'Content-Type': 'application/json' };
+  const key = getApiKey();
+  if (key) headers['x-api-key'] = key;
+
+  const response = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers,
+    body: JSON.stringify({
+      model: 'claude-sonnet-4-6',
+      max_tokens: 1000,
+      system: SYSTEM_PROMPT,
+      messages: history
+    })
+  });
+
+  if (!response.ok) {
+    const err = await response.text();
+    throw new Error(`API ${response.status}: ${err}`);
+  }
+
+  const data = await response.json();
+  const raw = data.content[0].text;
+  history.push({ role: 'assistant', content: raw });
+
+  // Robust JSON extraction: find outermost { ... }
+  const start = raw.indexOf('{');
+  const end = raw.lastIndexOf('}');
+  if (start === -1 || end === -1) throw new Error('Kein JSON gefunden');
+  return JSON.parse(raw.slice(start, end + 1));
+}
+
+async function handleSubmit() {
+  const ta = document.getElementById('ta');
+  const text = ta.value.trim();
+  if (text.length < 20) return;
+
+  round++;
+  ta.value = '';
+  document.getElementById('char-count').textContent = '0 Zeichen · Strg+Enter zum Absenden';
+  document.getElementById('submit-btn').disabled = true;
+
+  setLoading(true);
+
+  let result;
+  try {
+    result = await callClaude(text);
+  } catch (e) {
+    console.error(e);
+    setLoading(false);
+    const isFileProtocol = location.protocol === 'file:';
+    const hint = isFileProtocol
+      ? ' — Bitte Datei über einen lokalen Webserver öffnen (python3 -m http.server 8080), nicht direkt als file://'
+      : '';
+    addMichaelaBubble('Technischer Fehler: ' + e.message + hint);
+    return;
+  }
+
+  setLoading(false);
+  setProgress(round);
+  addPlayerBubble(text, result.analyse || null);
+  addMichaelaBubble(result.michaela_response || result.heinrich_response, result.situation || null);
+
+  // Store round data for logging
+  sessionData.runden.push({
+    runde: round,
+    text: text,
+    ansatz: result.analyse?.ansatz || '',
+    tonalitaet: result.analyse?.tonalitaet || '',
+    konzepte: (result.analyse?.konzepte || []).join(', ')
+  });
+
+  if (result.is_final) {
+    sessionData.final_assessment = result.final_assessment || '';
+    sessionData.staerken = result.final_profil?.staerken || [];
+    sessionData.entwicklungsfelder = result.final_profil?.entwicklungsfelder || [];
+    renderFinal(result.final_assessment, result.final_profil || null);
+  } else {
+    // After first round: show Michaela's follow-up as placeholder nudge
+    const followUp = result.situation || result.michaela_response || result.heinrich_response;
+    const hint = extractQuestion(followUp);
+    const ta2 = document.getElementById('ta');
+    ta2.placeholder = hint || 'Ihre Antwort auf Michaelas Frage...';
+    addFollowUpHint(hint);
+  }
+}
+
+// Extract last question from a text block
+function extractQuestion(text) {
+  if (!text) return null;
+  const sentences = text.split(/(?<=[.!?])\s+/);
+  const questions = sentences.filter(s => s.trim().endsWith('?'));
+  return questions.length ? questions[questions.length - 1].trim() : null;
+}
+
+// Show a soft prompt hint below the textarea
+function addFollowUpHint(hint) {
+  const existing = document.getElementById('follow-hint');
+  if (existing) existing.remove();
+  if (!hint) return;
+  const sec = document.getElementById('input-section');
+  if (!sec) return;
+  const div = document.createElement('p');
+  div.id = 'follow-hint';
+  div.style.cssText = 'font-size:12px;color:var(--text-soft);margin-top:6px;font-style:italic;line-height:1.5;';
+  div.textContent = '↳ ' + hint;
+  sec.insertBefore(div, sec.querySelector('.input-footer'));
+}
+
+async function logToSheets() {
+  const name = document.getElementById('log-name').value.trim();
+  if (!name) {
+    setLogStatus('Bitte Kürzel oder Namen eingeben.', false);
+    return;
+  }
+  if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbwTfP8ygOun58rmvY9hQXFmPEgVyxppQGEPYjar1e78N6uanaGHuzBNOyU5P4kgvmz7/exec') {
+    setLogStatus('Apps Script URL nicht konfiguriert — bitte Zwischenablage nutzen.', false);
+    return;
+  }
+
+  setLogStatus('Wird gespeichert...', null);
+
+  const r = sessionData.runden;
+  const params = new URLSearchParams({
+    name: name,
+    zeitstempel: new Date().toISOString(),
+    r1_text:      (r[0]?.text || '').substring(0, 500),
+    r1_ansatz:    r[0]?.ansatz || '',
+    r1_tonalitaet: r[0]?.tonalitaet || '',
+    r1_konzepte:  r[0]?.konzepte || '',
+    r2_text:      (r[1]?.text || '').substring(0, 500),
+    r2_ansatz:    r[1]?.ansatz || '',
+    r2_tonalitaet: r[1]?.tonalitaet || '',
+    r2_konzepte:  r[1]?.konzepte || '',
+    r3_text:      (r[2]?.text || '').substring(0, 500),
+    r3_ansatz:    r[2]?.ansatz || '',
+    r3_tonalitaet: r[2]?.tonalitaet || '',
+    r3_konzepte:  r[2]?.konzepte || '',
+    staerken:     sessionData.staerken.join(' | '),
+    entwicklungsfelder: sessionData.entwicklungsfelder.join(' | '),
+    gesamteinschaetzung: (sessionData.final_assessment || '').substring(0, 800)
+  });
+
+  try {
+    await fetch(APPS_SCRIPT_URL + '?' + params.toString(), { method: 'GET', mode: 'no-cors' });
+    setTimeout(() => setLogStatus('Gespeichert. Vielen Dank!', true), 400);
+    document.getElementById('log-btn') && (document.getElementById('log-btn').disabled = true);
+  } catch(e) {
+    setLogStatus('Fehler beim Speichern — bitte Zwischenablage nutzen.', false);
+  }
+}
+
+function setLogStatus(msg, ok) {
+  const el = document.getElementById('log-status');
+  if (!el) return;
+  el.textContent = msg;
+  el.style.color = ok === true ? 'var(--accent)' : ok === false ? '#c0392b' : 'var(--text-soft)';
+}
+
+function copyToClipboard() {
+  const r = sessionData.runden;
+  const lines = [
+    'WellSeal 100-Tage-Simulation — ' + new Date().toLocaleString('de-DE'),
+    '',
+    'RUNDE 1 — Tage 1-30',
+    'Antwort: ' + (r[0]?.text || '—'),
+    'Ansatz: ' + (r[0]?.ansatz || '—') + ' | Tonalität: ' + (r[0]?.tonalitaet || '—'),
+    'Konzepte: ' + (r[0]?.konzepte || '—'),
+    '',
+    'RUNDE 2 — Tage 30-60',
+    'Antwort: ' + (r[1]?.text || '—'),
+    'Ansatz: ' + (r[1]?.ansatz || '—') + ' | Tonalität: ' + (r[1]?.tonalitaet || '—'),
+    'Konzepte: ' + (r[1]?.konzepte || '—'),
+    '',
+    'RUNDE 3 — Tage 60-100',
+    'Antwort: ' + (r[2]?.text || '—'),
+    'Ansatz: ' + (r[2]?.ansatz || '—') + ' | Tonalität: ' + (r[2]?.tonalitaet || '—'),
+    'Konzepte: ' + (r[2]?.konzepte || '—'),
+    '',
+    'STÄRKEN: ' + sessionData.staerken.join(' | '),
+    'ENTWICKLUNGSFELDER: ' + sessionData.entwicklungsfelder.join(' | '),
+    '',
+    'GESAMTEINSCHÄTZUNG:',
+    sessionData.final_assessment || '—'
+  ];
+  navigator.clipboard.writeText(lines.join('\n'))
+    .then(() => setLogStatus('In Zwischenablage kopiert.', true))
+    .catch(() => setLogStatus('Kopieren fehlgeschlagen — bitte manuell markieren.', false));
+}
+
+function escHtml(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+document.addEventListener('keydown', function(e) {
+  if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') handleSubmit();
+});
+
+function initTextarea() {
+  const ta = document.getElementById('ta');
+  if (!ta) return;
+  ta.addEventListener('input', function() {
+    const l = this.value.length;
+    document.getElementById('char-count').textContent = l + ' Zeichen · Strg+Enter zum Absenden';
+    document.getElementById('submit-btn').disabled = l < 20;
+  });
+}
+
+function init() {
+  history = [];
+  round = 0;
+  initSessionData();
+  document.getElementById('conv').innerHTML = '';
+
+  const oldHint = document.getElementById('follow-hint'); if (oldHint) oldHint.remove();
+  const old = document.querySelector('.final-card');
+  if (old) old.closest('div').remove();
+  const rb = document.querySelector('.restart-btn');
+  if (rb) rb.closest('div').remove();
+
+  if (!document.getElementById('input-section')) {
+    const sec = document.createElement('div');
+    sec.className = 'input-section';
+    sec.id = 'input-section';
+    sec.innerHTML = `
+      <label class="input-label" for="ta">Ihre Antwort</label>
+      <textarea id="ta" placeholder="Beschreiben Sie Ihren Ansatz für die ersten 100 Tage als KI-Beauftragter bei WellSeal..."></textarea>
+      <div class="input-footer">
+        <span class="char-count" id="char-count">0 Zeichen · Strg+Enter zum Absenden</span>
+        <button class="submit-btn" id="submit-btn" disabled onclick="handleSubmit()">Antworten →</button>
+      </div>`;
+    document.getElementById('app').appendChild(sec);
+    initTextarea();
+  }
+
+  setProgress(0);
+  addMichaelaBubble(OPENING, null);
+}
+
+initTextarea(); // called once on first showApp()
+</script>
+</body>
+</html>
