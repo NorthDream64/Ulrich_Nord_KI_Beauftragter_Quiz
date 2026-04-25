@@ -1,5 +1,5 @@
 # UC-04 Unternehmensakte — SolidFinanz AG
-> TÜV Rheinland · KI-Beauftragter Modul 764 · Stand: April 2026
+> TÜV Rheinland · Projektaufgabe: KI-Beauftragter
 > ⚠️ Fiktives Unternehmen — alle Namen und Details sind für Schulungszwecke erstellt
 
 ---
