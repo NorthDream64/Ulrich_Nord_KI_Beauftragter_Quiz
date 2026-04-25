@@ -1,5 +1,5 @@
 # UC-01b: Lieferanten- und Personalplanung — Dozenten-Hinweise
-> KI-Beauftragter · Modul 764 · TÜV Rheinland · Woche 2–3  
+> KI-Beauftragter · Woche 2–3  
 > ⚠️ Nicht für Teilnehmende
 
 ---
