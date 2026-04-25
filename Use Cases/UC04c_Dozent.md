@@ -1,5 +1,5 @@
 # UC-04c: KI-Nutzungsrichtlinie & Prompting — Dozenten-Hinweise
-> KI-Beauftragter · Modul 764 · TÜV Rheinland · Woche 2
+> alfatraining · Projektaufgabe: KI-Beauftragter
 > ⚠️ Nicht für Teilnehmende
 
 ---
