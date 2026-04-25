@@ -1,4 +1,4 @@
-# UC-04 Unternehmensakte — SolidFinanz AG
+# SolidFinanz AG
 > alfatraining · Projektaufgabe: KI-Beauftragter
 > ⚠️ Fiktives Unternehmen — alle Namen und Details sind für Schulungszwecke erstellt
 
