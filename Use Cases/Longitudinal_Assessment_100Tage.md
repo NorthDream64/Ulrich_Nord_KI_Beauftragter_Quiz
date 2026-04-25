@@ -1,5 +1,5 @@
 # Longitudinal Assessment — Die 100-Tage-Frage
-> TÜV Rheinland · KI-Beauftragter Modul 764 · Stand: April 2026  
+> alfatraining · KI-Beauftragter
 > Aufgabenstellung und Verfeinerungsstruktur über vier Kurswochen  
 > Unternehmenskontext: → UC02_Schiffszulieferer_Kontext.md
 
