@@ -1,5 +1,5 @@
 # UC-04 Unternehmensakte — SolidFinanz AG
-> TÜV Rheinland · Projektaufgabe: KI-Beauftragter
+> alfatraining · Projektaufgabe: KI-Beauftragter
 > ⚠️ Fiktives Unternehmen — alle Namen und Details sind für Schulungszwecke erstellt
 
 ---
