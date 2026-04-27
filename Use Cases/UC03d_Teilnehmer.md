@@ -1,5 +1,5 @@
 # UC-03d: Diagnoseunterstützung (CT / Röntgen / Behandlungspfade)
-> KI-Beauftragter · Modul 764 · TÜV Rheinland · Woche 2–3
+> Fallstudie KI-Beauftragter
 
 ---
 
