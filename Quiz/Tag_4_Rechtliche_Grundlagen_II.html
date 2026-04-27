@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lernkontrolle · Tag 4 · Rechtliche Grundlagen II</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Playfair+Display:wght@600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:#1a1a18;--paper:#f5f2ec;--card:#fff;--rule:#d5d0c5;--muted:#888880;
+  --accent:#2a4a8a;--accent-soft:#e8edf7;
+  --role-a:#2a5c3f;--role-a-soft:#e8f2ec;
+  --role-b:#7a3a2a;--role-b-soft:#f5ece8;
+  --level-1:#5a3a7a;--level-1-soft:#f0eaf7;
+  --level-2:#0a5a7a;--level-2-soft:#e0eff7;
+  --correct:#2a7a50;--correct-bg:#eaf5ee;--correct-border:#a0d8b8;
+  --wrong:#9a2a2a;--wrong-bg:#faeaea;--wrong-border:#d8a0a0;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);line-height:1.65;font-size:15px;}
+a{color:var(--accent);}
+
+/* HEADER */
+.site-header{border-bottom:2px solid var(--ink);padding:1.8rem 2rem 1.4rem;max-width:820px;margin:0 auto;}
+.eyebrow{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem;}
+.site-header h1{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,4vw,2.1rem);line-height:1.15;margin-bottom:.4rem;}
+.header-meta{font-size:12px;color:var(--muted);display:flex;gap:1rem;flex-wrap:wrap;}
+.header-meta span::before{content:"· ";}
+.header-meta span:first-child::before{content:"";}
+
+/* MAIN */
+.main{max-width:820px;margin:0 auto;padding:1.8rem 2rem 4rem;}
+
+/* SETUP */
+.setup-card{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:2rem;max-width:540px;margin:0 auto;}
+.setup-card h2{font-family:'Playfair Display',serif;font-size:1.3rem;margin-bottom:1.2rem;}
+.field-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:.35rem;}
+.setup-input{width:100%;border:1px solid var(--rule);border-radius:8px;padding:.6rem .9rem;font-family:'DM Sans',sans-serif;font-size:14px;background:var(--paper);outline:none;color:var(--ink);transition:border-color .15s;}
+.setup-input:focus{border-color:var(--ink);}
+.setup-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.2rem;}
+@media(max-width:480px){.setup-grid{grid-template-columns:1fr;}}
+.role-btns,.level-btns{display:flex;gap:.5rem;}
+.sel-btn{flex:1;padding:.55rem .6rem;border:1px solid var(--rule);border-radius:8px;background:none;font-family:'DM Sans',sans-serif;font-size:13px;cursor:pointer;text-align:center;transition:all .15s;color:var(--ink);}
+.sel-btn.active-a{background:var(--role-a-soft);border-color:var(--role-a);color:var(--role-a);font-weight:500;}
+.sel-btn.active-b{background:var(--role-b-soft);border-color:var(--role-b);color:var(--role-b);font-weight:500;}
+.sel-btn.active-1{background:var(--level-1-soft);border-color:var(--level-1);color:var(--level-1);font-weight:500;}
+.sel-btn.active-2{background:var(--level-2-soft);border-color:var(--level-2);color:var(--level-2);font-weight:500;}
+.hint-text{font-size:12px;color:var(--muted);margin-top:.3rem;display:block;}
+.btn-start{width:100%;padding:.75rem;background:var(--ink);color:#fff;border:none;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;cursor:pointer;margin-top:1rem;transition:background .15s;}
+.btn-start:hover{background:#333;}
+.btn-start:disabled{background:#aaa;cursor:not-allowed;}
+
+/* QUIZ HEADER STRIP */
+.quiz-header-strip{display:flex;gap:.6rem;align-items:center;margin-bottom:1.4rem;flex-wrap:wrap;}
+.strip-tag{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:100px;}
+.strip-role-a{background:var(--role-a-soft);color:var(--role-a);}
+.strip-role-b{background:var(--role-b-soft);color:var(--role-b);}
+.strip-level-1{background:var(--level-1-soft);color:var(--level-1);}
+.strip-level-2{background:var(--level-2-soft);color:var(--level-2);}
+.strip-name{font-size:13px;color:var(--muted);margin-left:auto;}
+
+/* PROGRESS */
+.progress-bar{height:3px;background:var(--rule);border-radius:2px;margin-bottom:1.2rem;}
+.progress-fill{height:100%;background:var(--ink);border-radius:2px;transition:width .3s;}
+.progress-label{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);margin-bottom:.5rem;}
+
+/* SCENARIO */
+.scenario-box{background:var(--accent-soft);border:1px solid #c0d0e8;border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:.9rem 1.1rem;margin-bottom:1.2rem;}
+.scenario-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:.3rem;}
+.scenario-text{font-size:13px;color:var(--ink);line-height:1.6;}
+
+/* QUESTION CARD */
+.q-card{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:1.5rem;margin-bottom:1rem;}
+.q-num{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:.6rem;}
+.q-text{font-size:15px;font-weight:500;line-height:1.55;margin-bottom:.5rem;}
+.q-hint{font-size:12px;color:var(--muted);margin-bottom:.9rem;font-style:italic;}
+
+/* OPTIONS */
+.opt-list{display:flex;flex-direction:column;gap:.5rem;}
+.opt{display:flex;align-items:flex-start;gap:.7rem;padding:.75rem 1rem;border:1px solid var(--rule);border-radius:8px;cursor:pointer;background:#fdfdfb;transition:all .12s;-webkit-user-select:none;user-select:none;}
+.opt:hover:not(.disabled){border-color:#888;background:#f5f2ec;}
+.opt.selected{background:var(--accent-soft);border-color:#8090b8;}
+.opt.disabled{cursor:default;}
+.opt.correct-sel{background:var(--correct-bg);border-color:var(--correct-border);}
+.opt.wrong-sel{background:var(--wrong-bg);border-color:var(--wrong-border);}
+.opt.missed{background:var(--wrong-bg);border-color:var(--wrong-border);}
+.opt-cb{width:18px;height:18px;min-width:18px;border:1.5px solid #bbb;border-radius:4px;flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;transition:all .12s;}
+.opt-cb.chk{background:var(--ink);border-color:var(--ink);}
+.opt-cb.chk::after{content:'';display:block;width:8px;height:8px;background:#fff;border-radius:2px;}
+.opt.correct-sel .opt-cb{background:var(--correct);border-color:var(--correct);}
+.opt.correct-sel .opt-cb::after{content:'✓';color:#fff;font-size:11px;background:none;width:auto;height:auto;}
+.opt.wrong-sel .opt-cb{background:var(--wrong);border-color:var(--wrong);}
+.opt.wrong-sel .opt-cb::after{content:'✗';color:#fff;font-size:11px;background:none;width:auto;height:auto;}
+.opt.missed .opt-cb{background:var(--wrong);border-color:var(--wrong);}
+.opt.missed .opt-cb::after{content:'→';color:#fff;font-size:11px;background:none;width:auto;height:auto;}
+.opt-letter{font-family:'DM Mono',monospace;font-size:12px;color:var(--muted);min-width:16px;flex-shrink:0;margin-top:2px;}
+.opt-text{font-size:14px;line-height:1.5;}
+
+/* FEEDBACK */
+.feedback{border-radius:8px;padding:.9rem 1.1rem;margin-top:.9rem;}
+.feedback.fb-ok{background:var(--correct-bg);border:1px solid var(--correct-border);}
+.feedback.fb-wrong{background:var(--wrong-bg);border:1px solid var(--wrong-border);}
+.fb-title{font-weight:500;font-size:14px;margin-bottom:.4rem;}
+.fb-ok .fb-title{color:var(--correct);}
+.fb-wrong .fb-title{color:var(--wrong);}
+.fb-text{font-size:13px;line-height:1.65;color:#444;margin-bottom:.5rem;}
+.fb-source{font-size:12px;color:var(--muted);border-top:1px solid var(--rule);padding-top:.5rem;}
+
+/* NAV */
+.nav-row{display:flex;align-items:center;gap:.6rem;margin-top:1rem;}
+.btn{display:inline-flex;align-items:center;padding:.55rem 1.2rem;border:1px solid var(--rule);border-radius:8px;background:none;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;cursor:pointer;color:var(--ink);transition:all .15s;}
+.btn:hover{background:var(--paper);border-color:#888;}
+.btn:disabled{opacity:.3;cursor:not-allowed;}
+.btn-primary{background:var(--ink);color:#fff;border-color:var(--ink);}
+.btn-primary:hover{background:#333;}
+.btn-full{width:100%;justify-content:center;padding:.7rem;font-size:15px;margin-top:1rem;}
+.btn-submit{background:#2a5c3f;color:#fff;border-color:#2a5c3f;}
+.btn-submit:hover{background:#1e4530;}
+
+/* RESULTS */
+.result-block{max-width:600px;margin:0 auto;text-align:center;}
+.result-grade{font-family:'Playfair Display',serif;font-size:4.5rem;line-height:1;margin-bottom:.3rem;}
+.result-label{font-size:1.1rem;font-weight:500;margin-bottom:.3rem;}
+.result-sub{font-size:13px;color:var(--muted);margin-bottom:1.5rem;}
+.stats-row{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;margin-bottom:1.5rem;}
+.stat{background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:.9rem 1.2rem;text-align:center;min-width:90px;}
+.stat-n{font-size:1.8rem;font-weight:500;}
+.stat-l{font-size:11px;color:var(--muted);margin-top:2px;}
+.comp-title{font-size:13px;font-weight:500;text-align:left;margin-bottom:.8rem;}
+.comp-row{margin-bottom:.7rem;text-align:left;}
+.comp-labels{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-bottom:3px;}
+.comp-track{height:4px;background:var(--rule);border-radius:2px;}
+.comp-fill{height:100%;border-radius:2px;}
+.fill-ok{background:var(--correct);}
+.fill-wrong{background:var(--wrong);}
+.sheets-note{font-size:12px;color:var(--correct);background:var(--correct-bg);border:1px solid var(--correct-border);border-radius:8px;padding:.5rem .9rem;margin-top:1rem;display:inline-block;}
+.submit-status{display:none;font-size:12px;margin-top:.5rem;padding:.4rem .8rem;border-radius:6px;}
+.submit-status.sending{display:block;background:#fffbe8;color:#806a00;border:1px solid #d0c060;}
+.submit-status.success{display:block;background:var(--correct-bg);color:var(--correct);border:1px solid var(--correct-border);}
+.submit-status.error{display:block;background:var(--wrong-bg);color:var(--wrong);border:1px solid var(--wrong-border);}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="eyebrow">TÜV Rheinland · Modul 764 · Tag 4</div>
+  <h1>Lernkontrolle<br>Risikomanagement I</h1>
+  <div class="header-meta">
+    <span>5 Fragen je Rolle &amp; Stufe</span>
+    <span>Eine oder mehrere Antworten können richtig sein</span>
+    <span>Use Case: Krankenhaus-KI-Diagnoseunterstützung</span>
+  </div>
+</header>
+
+<main class="main">
+
+<!-- ── SETUP ── -->
+<div id="setup-section">
+  <div class="setup-card">
+    <h2>Bitte wähle deine Rolle und Schwierigkeitsstufe</h2>
+
+    <div style="margin-bottom:1rem;">
+      <span class="field-label">Dein Name (oder Teilnehmer-Nummer)</span>
+      <input type="text" id="participant-name" class="setup-input" placeholder="z. B. Teilnehmer-07 oder Vorname">
+    </div>
+
+    <div class="setup-grid">
+      <div>
+        <span class="field-label">Rolle</span>
+        <div class="role-btns">
+          <button class="sel-btn" id="btn-role-a" onclick="selectRole('a')">KI-Beauftragter</button>
+          <button class="sel-btn" id="btn-role-b" onclick="selectRole('b')">Bauplanung</button>
+        </div>
+        <span class="hint-text">Wähle deine Rolle im Unternehmen</span>
+      </div>
+      <div>
+        <span class="field-label">Schwierigkeitsstufe</span>
+        <div class="level-btns">
+          <button class="sel-btn" id="btn-level-1" onclick="selectLevel('1')">Anfänger</button>
+          <button class="sel-btn" id="btn-level-2" onclick="selectLevel('2')">Fortgeschrittene</button>
+        </div>
+        <span class="hint-text">Anfänger = Definitionen · Fortgeschr. = Szenarien</span>
+      </div>
+    </div>
+
+    <button class="btn-start" id="btn-start" onclick="startQuiz()" disabled>Quiz starten →</button>
+  </div>
+</div>
+
+<!-- ── QUIZ ── -->
+<div id="quiz-section" style="display:none">
+  <div class="quiz-header-strip" id="quiz-header-strip"></div>
+  <div class="progress-label" id="progress-label"></div>
+  <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+
+  <div class="scenario-box">
+    <div class="scenario-label">Fallbeispiel · Gilt für alle Fragen</div>
+    <div class="scenario-text" id="scenario-text"></div>
+  </div>
+
+  <div id="questions-container"></div>
+
+  <div class="nav-row" style="margin-top:1.5rem">
+    <button class="btn btn-submit btn-full" id="btn-submit" onclick="submitQuiz()" disabled>Auswertung anzeigen →</button>
+  </div>
+  <div class="submit-status" id="submit-status"></div>
+</div>
+
+<!-- ── RESULTS ── -->
+<div id="results-section" style="display:none">
+  <div class="result-block">
+    <div class="result-grade" id="result-grade"></div>
+    <div class="result-label" id="result-label"></div>
+    <div class="result-sub" id="result-sub"></div>
+    <div class="stats-row" id="stats-row"></div>
+    <div class="comp-title">Kompetenzprofil</div>
+    <div id="comp-bars"></div>
+    <div id="sheets-note"></div>
+    <div style="margin-top:.8rem;display:flex;justify-content:center;">
+      <button class="btn" onclick="location.reload()">Neu starten</button>
+    </div>
+    </div>
+
+  <!-- REVIEW -->
+  <hr style="border:none;border-top:1px solid var(--rule);margin:2rem 0">
+  <h2 style="font-family:'Playfair Display',serif;font-size:1.2rem;margin-bottom:1rem">Detailauswertung</h2>
+  <div id="review-container"></div>
+</div>
+
+</main>
+
+<script>
+/* ═══════ CONFIG ═══════════════════════════════════════════════ */
+var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwTfP8ygOun58rmvY9hQXFmPEgVyxppQGEPYjar1e78N6uanaGHuzBNOyU5P4kgvmz7/exec';
+
+/* ═══════ SZENARIEN ════════════════════════════════════════════ */
+var SCENARIOS = {
+  a: 'Das Bauplanungsbüro Dr. Seika (15 Mitarbeitende) hat ein zugekauftes KI-System mit eigenen Kalkulationsdaten fine-getuned. Das System liefert automatisierte Preisvorschläge für Nachträge. Auf einer Branchenmesse fragen drei befreundete Büros, ob sie es mitnutzen können — die Geschäftsführung plant, das Tool als „Akies" als SaaS unter eigenem Namen zu vermarkten. Als KI-Beauftragter (Marco Brandt) sollen Sie einschätzen, was das rechtlich bedeutet.',
+  b: 'Sie sind Stefanie Werner, Leiterin Bauplanung bei Dr. Seika. Sie nutzen das fine-getunte KI-System täglich und kennen seine Stärken und Schwächen besser als alle anderen. Wenn das Büro das System als „Akies" an andere Büros vermarktet, würden Sie auch die Hauptansprechpartnerin für Support und Schulung der Kundenbüros werden. Sie müssen einschätzen, wo Ihre operative Verantwortung endet — und wo Sie Marco einbeziehen müssen.'
+};
+
+/* ═══════ FRAGENBANK ═══════════════════════════════════════════ */
+var QBANK = {
+
+/* ── KI-Beauftragter · Anfänger ─────────────────────────────── */
+/* 1×1 richtig · 2×2 richtig · 2×3 richtig */
+a1: [
+  {
+    q: 'Welche vier Risikoklassen kennt der EU AI Act?',
+    opts: [
+      'Verbotene Praktiken · Hochrisiko · Begrenztes Risiko · Minimales Risiko',
+      'Niedrig · Mittel · Hoch · Kritisch',
+      'Erlaubt · Genehmigungspflichtig · Verboten · Sondergenehmigung',
+      'Forschung · Entwicklung · Test · Produktion'
+    ],
+    correct: [0],
+    exp: 'Der EU AI Act unterscheidet vier Risikoklassen: Verbotene Praktiken (Art. 5 — z.B. Social Scoring), Hochrisiko (Anhang III — z.B. Bonitätsprüfung), Begrenztes Risiko (Transparenzpflichten Art. 50 — z.B. Chatbots) und Minimales Risiko (keine besonderen Anforderungen). Die anderen Schemata existieren in dieser Form nicht im EU AI Act.',
+    src: 'EU AI Act Art. 5, 50 · Anhang III', url: 'https://artificialintelligenceact.eu/'
+  },
+  {
+    q: 'Welche Akteursrollen unterscheidet der EU AI Act in Art. 3?',
+    opts: [
+      'Anbieter — entwickelt und bringt das KI-System in Verkehr',
+      'Betreiber — Person, die das KI-System ursprünglich entwickelt und vertrieben hat',
+      'Programmierer — Person, die den Quellcode schreibt',
+      'Einführer und Händler — Akteure in der Lieferkette'
+    ],
+    correct: [0,3],
+    exp: 'Der EU AI Act kennt vier Akteursrollen: Anbieter (entwickelt das System), Betreiber (setzt es in eigener Verantwortung ein), Einführer (bringt es aus Drittstaaten in die EU) und Händler (Akteure in der Lieferkette). Die Beschreibung des Betreibers als „ursprünglicher Entwickler" ist falsch — das ist gerade die Anbieter-Rolle. Die Rolle des Programmierers ist keine eigenständige rechtliche Kategorie.',
+    src: 'EU AI Act Art. 3', url: 'https://artificialintelligenceact.eu/article/3/'
+  },
+  {
+    q: 'Was sind verbotene KI-Praktiken nach Art. 5 EU AI Act, die seit 2. Februar 2025 gelten?',
+    opts: [
+      'Social Scoring durch öffentliche oder private Akteure',
+      'Manipulative KI, die kognitive Verhaltensbeeinflussung gezielt ausnutzt',
+      'Jede Form von KI-gestützter Bilderkennung in Unternehmen',
+      'Biometrische Echtzeit-Massenüberwachung im öffentlichen Raum ohne jede Ausnahme'
+    ],
+    correct: [0,1],
+    exp: 'Art. 5 EU AI Act verbietet seit 2. Februar 2025 ohne Übergangsfrist: Social Scoring und manipulative Verhaltensbeeinflussung. Biometrische Massenüberwachung ist zwar grundsätzlich verboten, aber mit engen Ausnahmen (Strafverfolgung bei schweren Straftaten) — die Aussage „ohne jede Ausnahme" ist daher falsch. Bilderkennung in Unternehmen ist nicht generell verboten — sie kann je nach Einsatz Hochrisiko oder Minimal-Risiko sein.',
+    src: 'EU AI Act Art. 5', url: 'https://artificialintelligenceact.eu/article/5/'
+  },
+  {
+    q: 'Welche Pflichten hat ein Anbieter eines Hochrisiko-KI-Systems nach Art. 16 EU AI Act?',
+    opts: [
+      'Konformitätsbewertung vor Inverkehrbringen',
+      'Technische Dokumentation erstellen und vorhalten',
+      'CE-Kennzeichnung anbringen',
+      'Den Quellcode des Systems öffentlich zugänglich machen'
+    ],
+    correct: [0,1,2],
+    exp: 'Anbieter von Hochrisiko-KI-Systemen müssen nach Art. 16 EU AI Act eine Konformitätsbewertung durchführen, technische Dokumentation erstellen und das System mit CE-Kennzeichnung versehen. Eine Pflicht zur Quellcode-Offenlegung gibt es nicht — dies würde Geschäftsgeheimnisse zerstören. Stattdessen reicht die Dokumentation der wesentlichen Funktionsweise.',
+    src: 'EU AI Act Art. 16', url: 'https://artificialintelligenceact.eu/article/16/'
+  },
+  {
+    q: 'Welche Hauptpflichten hat ein Betreiber eines Hochrisiko-KI-Systems nach Art. 26 EU AI Act?',
+    opts: [
+      'Bestimmungsgemäße Verwendung nach Anbieter-Vorgaben sicherstellen',
+      'Menschliche Aufsicht durch geschulte Personen gewährleisten',
+      'Eingabedaten auf Eignung und Repräsentativität prüfen',
+      'Eine eigene Konformitätsbewertung des KI-Systems durchführen'
+    ],
+    correct: [0,1,2],
+    exp: 'Betreiber müssen nach Art. 26 EU AI Act drei zentrale Pflichten erfüllen: bestimmungsgemäße Verwendung gemäß Anbieter-Anweisungen, Sicherstellung menschlicher Aufsicht durch kompetente Personen, sowie Überprüfung der Eingabedaten auf Eignung. Eine eigene Konformitätsbewertung gehört nicht zu den Betreiber-Pflichten — das ist Aufgabe des Anbieters (Art. 16). Die Betreiber-Pflichten greifen zudem erst bei Hochrisiko-Systemen.',
+    src: 'EU AI Act Art. 26', url: 'https://artificialintelligenceact.eu/article/26/'
+  }
+],
+
+/* ── KI-Beauftragter · Fortgeschrittene ─────────────────────── */
+/* 1×1 richtig · 2×2 richtig · 2×3 richtig */
+a2: [
+  {
+    q: 'Dr. Seika hat das KI-System fine-getuned und plant, es als „Akies" unter eigenem Namen an andere Büros zu verkaufen. Was passiert rechtlich?',
+    opts: [
+      'Nichts — Fine-Tuning verändert die rechtliche Rolle nicht',
+      'Dr. Seika wird vom Betreiber zum Anbieter nach Art. 25 EU AI Act',
+      'Mit der Anbieter-Rolle übernimmt Dr. Seika die volle Compliance-Last für „Akies"',
+      'Marco kann diese Frage allein klären — Anwalt ist nicht nötig'
+    ],
+    correct: [1,2],
+    exp: 'Art. 25 EU AI Act regelt den Rollenübergang: Wer ein KI-System unter eigenem Namen in Verkehr bringt oder wesentlich verändert, wird zum Anbieter — mit allen Pflichten nach Art. 16. Bei Dr. Seika ist die Eigenvermarktung das eindeutige Auslöse-Ereignis. Die Aussage „nichts ändert sich" ist falsch. Anwaltliche Beratung ist hier zwingend, weil es um Vertragsgestaltung und Haftungsfragen geht — Marco sollte das nicht allein entscheiden.',
+    src: 'EU AI Act Art. 25', url: 'https://artificialintelligenceact.eu/article/25/'
+  },
+  {
+    q: 'Wie ordnen Sie das fine-getunte KI-System für Nachtragskalkulationen nach EU AI Act ein, wenn Dr. Seika es nur intern nutzt?',
+    opts: [
+      'Hochrisiko nach Anhang III Nr. 5 (Bonitätsprüfung)',
+      'Minimales Risiko — Nachtragskalkulation ist kein Anhang-III-Anwendungsfall',
+      'Verbotene Praxis nach Art. 5',
+      'Begrenztes Risiko mit Transparenzpflicht nach Art. 50'
+    ],
+    correct: [1],
+    exp: 'Eine Nachtragskalkulation für Bauleistungen ist weder Bonitätsprüfung noch fällt sie unter andere Anhang-III-Kategorien (Bewerbung, Strafverfolgung, kritische Infrastruktur etc.). Damit ist es minimales Risiko. „Hochrisiko nach Anhang III Nr. 5" ist falsch — Nr. 5 betrifft Kreditwürdigkeit. „Verbotene Praxis" ist falsch — Art. 5 erfordert manipulative Ausnutzung von Schwächen, was hier nicht vorliegt. „Begrenztes Risiko mit Transparenzpflicht" ist falsch — Art. 50 gilt für Chatbots und KI-generierte Inhalte gegenüber Menschen, nicht für interne Kalkulationstools.',
+    src: 'EU AI Act Anhang III', url: 'https://artificialintelligenceact.eu/annex/3/'
+  },
+  {
+    q: 'Welche Folgerungen lassen sich aus dem Air-Canada-Urteil (Moffatt vs. Air Canada) für einen deutschen Betreiber ziehen?',
+    opts: [
+      'Wer einen Chatbot betreibt, haftet für dessen Aussagen wie für die eigene Website',
+      'Der Chatbot ist eine eigenständige Rechtseinheit und haftet selbst',
+      'Das Prinzip lässt sich auf das deutsche Recht übertragen — Erfüllungsgehilfen-Haftung nach § 311 BGB',
+      'Die Übertragbarkeit auf Dr. Seika: wenn „Akies" Kunden falsche Preisempfehlungen gibt, haftet Dr. Seika'
+    ],
+    correct: [0,2,3],
+    exp: 'Das BC Civil Resolution Tribunal urteilte: Air Canada haftet für alle Inhalte ihrer Website — egal ob statisch oder vom Chatbot. Die Verteidigung „der Chatbot ist eigene Rechtseinheit" wurde explizit zurückgewiesen. Das Prinzip ist auf deutsches Recht übertragbar (§ 311 BGB — Erfüllungsgehilfen-Haftung). Für Dr. Seika folgt: Wenn „Akies" Kunden falsche Preise nennt, haftet Dr. Seika gegenüber den Kundenbüros. Die Aussage „Chatbot haftet selbst" wurde gerichtlich ausdrücklich abgelehnt.',
+    src: 'Moffatt v. Air Canada, BCCRT 2024 · § 311 BGB', url: 'https://www.cbc.ca/news/canada/british-columbia/air-canada-chatbot-lawsuit-1.7116416'
+  },
+  {
+    q: 'Wann sollten Sie als KI-Beauftragter nach dem Dreistufenmodell zwingend einen Anwalt einbeziehen (Stufe 3)?',
+    opts: [
+      'Bei jeder Frage zur DSGVO oder zum EU AI Act',
+      'Bei konkreten Schadensfällen oder drohenden Haftungsansprüchen',
+      'Bei Vertragsgestaltung für die SaaS-Vermarktung von „Akies"',
+      'Wenn das Geschäftsmodell sich rechtlich grundlegend ändert (z.B. Betreiber → Anbieter)'
+    ],
+    correct: [1,2,3],
+    exp: 'Stufe 3 (Anwalt) ist erforderlich bei konkreten Haftungsfragen, bei Vertragsgestaltung mit Außenwirkung und bei grundlegenden Geschäftsmodell-Änderungen mit rechtlicher Tragweite. „Bei jeder Frage zur DSGVO oder zum EU AI Act" ist falsch — viele Standardfragen lassen sich auf Stufe 1 (eigene Recherche) oder Stufe 2 (KI-Beauftragter im Austausch mit Datenschutzbeauftragtem) klären. Stufe 3 wird sonst zu teuer und unnötig.',
+    src: 'Dreistufenmodell · EU AI Act Art. 25', url: 'https://artificialintelligenceact.eu/article/25/'
+  },
+  {
+    q: 'Welche Aussagen zur Produkthaftung bei KI-Systemen treffen zu?',
+    opts: [
+      'Die neue EU-Produkthaftungsrichtlinie 2024 erfasst Software ausdrücklich',
+      'Die KI-Haftungsrichtlinie ist bereits in Kraft und gilt unmittelbar',
+      'Im deutschen Recht greift § 311 BGB — wer KI betreibt, haftet für ihre Aussagen wie für eigene',
+      'KI-Systeme sind nach deutschem Recht von jeder Produkthaftung ausgenommen — sie gelten nicht als „Produkt"'
+    ],
+    correct: [0,2],
+    exp: 'Die neue EU-Produkthaftungsrichtlinie (2024) erfasst Software einschließlich KI-Systemen ausdrücklich. § 311 BGB greift für KI-Betreiber wie das Air-Canada-Prinzip — wer das System einsetzt, haftet für seine Aussagen. Die Aussage „KI-Haftungsrichtlinie ist in Kraft" ist falsch — sie ist noch im EU-Gesetzgebungsverfahren. Die Aussage „KI-Systeme sind von Produkthaftung ausgenommen" ist ebenfalls falsch — die neue Richtlinie zieht Software gerade ausdrücklich in den Produktbegriff hinein.',
+    src: 'Neue ProdHaftRL 2024 · § 311 BGB · KI-Haftungsrichtlinie (Entwurf)', url: 'https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=OJ:L_202402853'
+  }
+],
+
+/* ── Bauplanung · Anfänger ──────────────────────────────────── */
+/* 1×1 richtig · 2×2 richtig · 2×3 richtig */
+b1: [
+  {
+    q: 'Was bedeutet es, dass Ihr KI-System „fine-getuned" wurde?',
+    opts: [
+      'Es wurde mit eigenen Kalkulationsdaten von Dr. Seika nachtrainiert und an die Bedürfnisse des Büros angepasst',
+      'Es bedeutet nur, dass die Benutzeroberfläche optisch angepasst wurde',
+      'Es wurde komplett neu programmiert',
+      'Es ist eine Anpassung des Modells, die rechtliche Folgen haben kann'
+    ],
+    correct: [0,3],
+    exp: 'Fine-Tuning bedeutet: ein vortrainiertes KI-Modell wird mit zusätzlichen, bürospezifischen Daten weiter trainiert — bei Dr. Seika mit den eigenen Kalkulationsdaten. Das verändert das Verhalten des Modells substanziell und kann rechtliche Konsequenzen haben (Art. 25 EU AI Act — Rollenübergang vom Betreiber zum Anbieter). Eine reine UI-Anpassung ist es nicht. Komplett neu programmiert wurde es auch nicht — die Basis bleibt das zugekaufte System.',
+    src: 'EU AI Act Art. 25', url: 'https://artificialintelligenceact.eu/article/25/'
+  },
+  {
+    q: 'Eine befreundete Bauleiterin fragt: „Kannst Du mir kurz zeigen, wie Euer System funktioniert und mir einen Gastzugang geben, damit ich es ausprobieren kann?" Wie reagieren Sie?',
+    opts: [
+      'Ja klar, ich zeige es dir und gebe dir den Zugang',
+      'Das muss ich erst mit Marco oder der Geschäftsführung klären — die Weitergabe von Zugängen kann rechtliche Folgen haben',
+      'Eine externe Nutzung ist auch eine Form der Weitergabe — das könnte uns zum Anbieter machen',
+      'Ich kann ihr unverbindlich das Prinzip erklären, aber den Zugang darf ich nicht selbst weitergeben'
+    ],
+    correct: [1,2,3],
+    exp: 'Drei Punkte sind richtig: Klärung mit Marco/Geschäftsführung ist nötig, weil informelle Weitergabe rechtliche Folgen haben kann (Art. 25 — Rollenwechsel zum Anbieter). Eine konzeptionelle Erklärung darf Stefanie geben, einen Zugang zu vergeben ist eine andere Liga. Die spontane Weitergabe ohne Rücksprache ist die einzig falsche Option — sie könnte das Büro ungewollt zum Anbieter machen, mit allen Compliance-Pflichten.',
+    src: 'EU AI Act Art. 25', url: 'https://artificialintelligenceact.eu/article/25/'
+  },
+  {
+    q: 'In welche EU AI Act-Risikoklasse fällt Ihr KI-System für Nachtragskalkulationen?',
+    opts: [
+      'Hochrisiko, weil es Geld-Entscheidungen trifft',
+      'Minimales Risiko — Nachtragskalkulation ist kein im EU AI Act besonders geregelter Anwendungsfall',
+      'Verbotene Praxis',
+      'Begrenztes Risiko mit Transparenzpflicht'
+    ],
+    correct: [1],
+    exp: 'Nachtragskalkulation ist kein Anwendungsfall, der im EU AI Act besonders geregelt ist (z.B. nicht in Anhang III gelistet) und auch keine verbotene Praxis nach Art. 5. Damit ist die Risikoklasse minimal — keine besonderen EU AI Act-Pflichten. „Hochrisiko, weil Geld-Entscheidungen" greift zu kurz: Hochrisiko sind nur die in Anhang III explizit genannten Anwendungsfälle. „Verbotene Praxis" trifft nicht zu. „Begrenztes Risiko mit Transparenzpflicht" gilt für Chatbots und Deepfakes, nicht für interne Kalkulationstools.',
+    src: 'EU AI Act Anhang III', url: 'https://artificialintelligenceact.eu/annex/3/'
+  },
+  {
+    q: 'Wann sollten Sie als operative Leiterin Marco oder die Geschäftsführung einbeziehen?',
+    opts: [
+      'Wenn das System eine Ausgabe macht, bei der Sie unsicher sind, ob sie an den Kunden weitergegeben werden darf',
+      'Wenn Externe (Kollegen aus anderen Büros, Kunden, Behörden) Fragen zum System stellen',
+      'Bei jeder einzelnen Nachtragskalkulation — vorsichtshalber',
+      'Erst dann, wenn das System tagelang gar keine Ergebnisse mehr liefert — kleinere Auffälligkeiten lassen sich übergehen'
+    ],
+    correct: [0,1],
+    exp: 'Eskalation ist sinnvoll bei rechtlich oder kommunikativ kritischen Ausgaben sowie bei externen Anfragen (auch informellen!). Erst bei Totalausfall zu eskalieren ist falsch — kleinere Auffälligkeiten und Abweichungen von Ihrer Erfahrung sind wichtige Frühwarnsignale für Modellfehler. Die Eskalation bei jeder einzelnen Kalkulation würde Sie und Marco lähmen — operative Routine bleibt bei Ihnen.',
+    src: 'EU AI Act Art. 26 · Dreistufenmodell', url: 'https://artificialintelligenceact.eu/article/26/'
+  },
+  {
+    q: 'Warum gilt Ihr KI-System gerade NICHT als verbotene Praxis nach Art. 5 EU AI Act?',
+    opts: [
+      'Weil es nicht der Manipulation oder Verhaltensbeeinflussung dient',
+      'Weil es nicht zur Kategorisierung von Personen nach sensiblen Merkmalen eingesetzt wird',
+      'Weil es weder Social Scoring noch biometrische Massenüberwachung betreibt',
+      'Weil interne Tools von kleinen Unternehmen grundsätzlich von Art. 5 ausgenommen sind'
+    ],
+    correct: [0,1,2],
+    exp: 'Art. 5 EU AI Act verbietet ganz spezifische Anwendungen: manipulative Verhaltensbeeinflussung, Social Scoring, biometrische Echtzeit-Überwachung im öffentlichen Raum, Kategorisierung nach sensiblen Merkmalen. Ein Tool für Nachtragskalkulationen erfüllt keinen dieser Tatbestände — es bewertet nur Bauleistungen, keine Personen. Die Aussage „interne Tools von kleinen Unternehmen sind ausgenommen" ist falsch — Art. 5 kennt keine KMU-Ausnahme; die Verbote gelten für alle Akteure unabhängig von Größe oder Anwendungsbereich.',
+    src: 'EU AI Act Art. 5', url: 'https://artificialintelligenceact.eu/article/5/'
+  }
+],
+
+/* ── Bauplanung · Fortgeschrittene ─────────────────────────── */
+/* 1×1 richtig · 2×2 richtig · 2×3 richtig */
+b2: [
+  {
+    q: 'Wenn Dr. Seika „Akies" als SaaS vermarktet — wie verändert sich Ihre operative Rolle?',
+    opts: [
+      'Gar nicht — Sie machen weiter wie bisher',
+      'Sie würden voraussichtlich auch Support und Schulung für die Kundenbüros übernehmen',
+      'Sie tragen mehr Verantwortung, weil Ihre Auskünfte jetzt auch externe Kunden binden',
+      'Sie müssen den Kunden bei Bedarf den Quellcode und die Inferenzen erläutern'
+    ],
+    correct: [1,2],
+    exp: 'Mit der SaaS-Vermarktung weitet sich Ihre Rolle deutlich aus: Sie würden Hauptansprechpartnerin für Kundenbüros werden, Ihre Auskünfte wirken jetzt extern — und können das Büro binden (Air-Canada-Prinzip). Die Aussage „gar nicht ändert sich" ist falsch — die Eigenvermarktung verändert Ihre Verantwortung substanziell. Die Aussage „Quellcode und Inferenzen erläutern" ist falsch — der EU AI Act fordert Transparenz und Dokumentation, aber keine Quellcode-Offenlegung. Inferenzen (Modellergebnisse) müssen erklärbar sein, der zugrundeliegende Code aber nicht.',
+    src: 'EU AI Act Art. 25 · Moffatt v. Air Canada', url: 'https://artificialintelligenceact.eu/article/25/'
+  },
+  {
+    q: 'Sie haben einem Kunden eine Auskunft gegeben, die Sie aus dem KI-System hatten. Sie war falsch und der Kunde verlangt Schadensersatz. Wer haftet?',
+    opts: [
+      'Der KI-Anbieter, von dem das System ursprünglich stammt',
+      'Niemand — es war ja eine KI-Auskunft',
+      'Dr. Seika als Betreiber — analog zum Air-Canada-Prinzip und § 311 BGB',
+      'Sie persönlich — Sie haben die Auskunft schließlich weitergegeben'
+    ],
+    correct: [2],
+    exp: 'Dr. Seika haftet als Betreiber gegenüber dem Kunden — wer ein KI-System einsetzt, übernimmt die Verantwortung für dessen Auskünfte (Air-Canada-Prinzip, § 311 BGB). „Niemand" ist falsch — KI-Ausgaben entbinden nicht von Haftung. Der ursprüngliche KI-Anbieter haftet nicht direkt gegenüber dem Kunden, weil Dr. Seika das System an den Kunden vermittelt hat. Eine persönliche Haftung der Mitarbeiterin scheidet in der Regel aus — innerhalb der Arbeitspflichten haftet der Arbeitgeber.',
+    src: 'Moffatt v. Air Canada · § 311 BGB', url: 'https://www.cbc.ca/news/canada/british-columbia/air-canada-chatbot-lawsuit-1.7116416'
+  },
+  {
+    q: 'Sie haben das KI-System für einen Routinefall genutzt und das Ergebnis weicht stark von Ihrer Erfahrung ab. Wie gehen Sie nach dem Dreistufenmodell vor?',
+    opts: [
+      'Stufe 1: eigene Plausibilitätsprüfung — passt das Ergebnis zu Vergleichsfällen?',
+      'Stufe 2: Marco einbeziehen — kann ein systematischer Fehler vorliegen?',
+      'Stufe 3: sofort einen Anwalt anrufen',
+      'Das Ergebnis trotzdem an den Kunden weitergeben — die KI wird schon recht haben'
+    ],
+    correct: [0,1],
+    exp: 'Bei einem operativen Zweifelsfall ist die richtige Reihenfolge: zuerst eigene Plausibilitätsprüfung (Stufe 1), dann bei weiteren Bedenken Marco einbeziehen (Stufe 2). Stufe 3 (Anwalt) ist erst nötig, wenn ein konkreter Schadensfall oder eine Haftungsfrage vorliegt — nicht bei einem reinen Plausibilitätszweifel. Das Ergebnis ungeprüft weiterzugeben wäre fahrlässig — KI-Auskünfte ersetzen menschliche Aufsicht nicht.',
+    src: 'EU AI Act Art. 14 · Dreistufenmodell', url: 'https://artificialintelligenceact.eu/article/14/'
+  },
+  {
+    q: 'Welche Konsequenzen hat es für Sie persönlich, dass Dr. Seika mit dem Fine-Tuning vermutlich vom Betreiber zum Anbieter wird?',
+    opts: [
+      'Sie könnten in die Pflicht kommen, Anwender-Schulungen zu dokumentieren',
+      'Sie tragen die volle persönliche Haftung für alle Schäden',
+      'Sie sind als Hauptnutzerin eine wichtige Quelle für die technische Dokumentation des Systems',
+      'Sie sollten Ihre Beobachtungen zum Systemverhalten systematisch festhalten — Marco und Anwalt brauchen diese Informationen'
+    ],
+    correct: [0,2,3],
+    exp: 'Mit der Anbieter-Rolle entstehen für Dr. Seika neue Pflichten — Sie sind als operative Leiterin direkt betroffen: Sie sind die wichtigste Quelle für die technische Dokumentation (was kann das System? was nicht? unter welchen Bedingungen versagt es?), Schulungen müssen dokumentiert werden, und Ihre systematischen Beobachtungen sind Gold wert für Marco und ggf. Anwalt. Persönliche Haftung trifft Sie als Mitarbeiterin nicht — die Anbieter-Pflichten treffen Dr. Seika als Unternehmen.',
+    src: 'EU AI Act Art. 16, 25', url: 'https://artificialintelligenceact.eu/article/16/'
+  },
+  {
+    q: 'Wie unterscheiden sich Ihre Pflichten heute (Betreiber-Rolle) und nach der „Akies"-Vermarktung (Anbieter-Rolle)?',
+    opts: [
+      'Heute: bestimmungsgemäße Nutzung und menschliche Aufsicht (Art. 26)',
+      'Nach Akies: zusätzlich Konformitätsbewertung, technische Dokumentation, CE-Kennzeichnung (Art. 16)',
+      'Es ändert sich nichts — Pflichten sind identisch',
+      'Beide Rollen können parallel bestehen — Dr. Seika nutzt das System weiterhin selbst und ist insoweit auch Betreiber'
+    ],
+    correct: [0,1,3],
+    exp: 'Heute: Dr. Seika ist Betreiber — Sie als operative Leiterin sorgen für bestimmungsgemäße Nutzung und menschliche Aufsicht (Art. 26 EU AI Act, jedoch bei minimalem Risiko ohne formale Anforderungen). Nach „Akies"-Vermarktung: Dr. Seika wird Anbieter — es kommen Konformitätsbewertung, technische Dokumentation und CE-Kennzeichnung hinzu (Art. 16). Die Aussage „nichts ändert sich" ist falsch. Die beiden Rollen können parallel bestehen — Dr. Seika nutzt das System weiterhin selbst (für eigene Nachträge) und ist insoweit auch weiterhin Betreiber, während es für die SaaS-Kunden gleichzeitig Anbieter ist.',
+    src: 'EU AI Act Art. 16, 25, 26', url: 'https://artificialintelligenceact.eu/article/16/'
+  }
+]
+}; /* Ende QBANK */
+
+/* ═══════ STATE ════════════════════════════════════════════════ */
+var S = { role:null, level:null, name:'', questions:[], selections:[], submitted:false };
+
+/* ═══════ SETUP ════════════════════════════════════════════════ */
+function selectRole(r) {
+  S.role = r;
+  document.getElementById('btn-role-a').className='sel-btn'+(r==='a'?' active-a':'');
+  document.getElementById('btn-role-b').className='sel-btn'+(r==='b'?' active-b':'');
+  checkReady();
+}
+function selectLevel(l) {
+  S.level = l;
+  document.getElementById('btn-level-1').className='sel-btn'+(l==='1'?' active-1':'');
+  document.getElementById('btn-level-2').className='sel-btn'+(l==='2'?' active-2':'');
+  checkReady();
+}
+function checkReady() {
+  document.getElementById('btn-start').disabled = !(S.role && S.level);
+}
+
+function startQuiz() {
+  S.name = document.getElementById('participant-name').value.trim() || 'Anonym';
+  var key = S.role + S.level;
+  S.questions = QBANK[key].map(function(q,i){
+    /* Shuffle options, remap correct[] */
+    var n=q.opts.length, idx=[];
+    for(var k=0;k<n;k++) idx.push(k);
+    for(var j=n-1;j>0;j--){ var r=Math.floor(Math.random()*(j+1)),t=idx[j];idx[j]=idx[r];idx[r]=t; }
+    return {
+      q:q.q,
+      opts:idx.map(function(i){return q.opts[i];}),
+      correct:q.correct.map(function(c){return idx.indexOf(c);}),
+      exp:q.exp, src:q.src, url:q.url
+    };
+  });
+  S.selections = S.questions.map(function(){return [];});
+  S.submitted = false;
+
+  document.getElementById('setup-section').style.display='none';
+  document.getElementById('quiz-section').style.display='block';
+
+  /* Header strip */
+  var rLabel = S.role==='a'?'KI-Beauftragter':'Bauplanung';
+  var lLabel = S.level==='1'?'Anfänger':'Fortgeschrittene';
+  var rClass = S.role==='a'?'strip-role-a':'strip-role-b';
+  var lClass = S.level==='1'?'strip-level-1':'strip-level-2';
+  document.getElementById('quiz-header-strip').innerHTML =
+    '<span class="strip-tag '+rClass+'">'+rLabel+'</span>'
+    +'<span class="strip-tag '+lClass+'">'+lLabel+'</span>'
+    +'<span class="strip-name">'+S.name+'</span>';
+
+  document.getElementById('scenario-text').textContent = SCENARIOS[S.role];
+  renderQuestions();
+}
+
+/* ═══════ RENDER QUESTIONS ═════════════════════════════════════ */
+function renderQuestions() {
+  var container = document.getElementById('questions-container');
+  container.innerHTML = '';
+  var total = S.questions.length;
+
+  S.questions.forEach(function(q, qi) {
+    var card = document.createElement('div');
+    card.className = 'q-card';
+    card.id = 'qcard-'+qi;
+
+    var numEl = document.createElement('div');
+    numEl.className = 'q-num';
+    numEl.textContent = 'Frage '+(qi+1)+' von '+total;
+    card.appendChild(numEl);
+
+    var qEl = document.createElement('div');
+    qEl.className = 'q-text';
+    qEl.textContent = q.q;
+    card.appendChild(qEl);
+
+    var hEl = document.createElement('div');
+    hEl.className = 'q-hint';
+    hEl.textContent = 'Eine oder mehrere Antworten können richtig sein.';
+    card.appendChild(hEl);
+
+    var optList = document.createElement('div');
+    optList.className = 'opt-list';
+    var letters = ['A','B','C','D'];
+
+    q.opts.forEach(function(opt, oi) {
+      var row = document.createElement('div');
+      row.className = 'opt';
+      row.id = 'opt-'+qi+'-'+oi;
+      row.onclick = (function(qIdx,oIdx){ return function(){ toggleOpt(qIdx,oIdx); }; })(qi,oi);
+
+      var cb = document.createElement('div');
+      cb.className = 'opt-cb';
+      cb.id = 'cb-'+qi+'-'+oi;
+      row.appendChild(cb);
+
+      var letter = document.createElement('div');
+      letter.className = 'opt-letter';
+      letter.textContent = letters[oi]+'.';
+      row.appendChild(letter);
+
+      var text = document.createElement('div');
+      text.className = 'opt-text';
+      text.textContent = opt;
+      row.appendChild(text);
+
+      optList.appendChild(row);
+    });
+
+    card.appendChild(optList);
+
+    /* Feedback placeholder */
+    var fb = document.createElement('div');
+    fb.id = 'fb-'+qi;
+    card.appendChild(fb);
+
+    container.appendChild(card);
+  });
+
+  updateProgress();
+}
+
+function toggleOpt(qi, oi) {
+  if (S.submitted) return;
+  var sel = S.selections[qi];
+  var pos = sel.indexOf(oi);
+  if (pos >= 0) sel.splice(pos,1); else sel.push(oi);
+
+  /* Update visual */
+  var cb = document.getElementById('cb-'+qi+'-'+oi);
+  var row = document.getElementById('opt-'+qi+'-'+oi);
+  var isSel = sel.indexOf(oi) >= 0;
+  cb.className = 'opt-cb'+(isSel?' chk':'');
+  row.className = 'opt'+(isSel?' selected':'');
+
+  checkSubmitReady();
+  updateProgress();
+}
+
+function checkSubmitReady() {
+  var answered = S.selections.filter(function(s){return s.length>0;}).length;
+  document.getElementById('btn-submit').disabled = (answered < S.questions.length);
+}
+
+function updateProgress() {
+  var answered = S.selections.filter(function(s){return s.length>0;}).length;
+  var pct = Math.round(answered/S.questions.length*100);
+  document.getElementById('progress-fill').style.width = pct+'%';
+  document.getElementById('progress-label').textContent = answered+' von '+S.questions.length+' Fragen beantwortet';
+}
+
+/* ═══════ SUBMIT ════════════════════════════════════════════════ */
+function submitQuiz() {
+  S.submitted = true;
+  document.getElementById('btn-submit').disabled = true;
+
+  var correct=0, wrong=0;
+
+  S.questions.forEach(function(q, qi) {
+    var sel = S.selections[qi].slice().sort().join(',');
+    var cor = q.correct.slice().sort().join(',');
+    var isFull = sel===cor;
+
+    if (isFull) correct++; else wrong++;
+
+    /* Update option visuals */
+    q.opts.forEach(function(opt,oi){
+      var row = document.getElementById('opt-'+qi+'-'+oi);
+      var cb  = document.getElementById('cb-'+qi+'-'+oi);
+      var isSel = S.selections[qi].indexOf(oi)>=0;
+      var isCorr = q.correct.indexOf(oi)>=0;
+      row.className = 'opt disabled'+(isSel&&isCorr?' correct-sel':isSel&&!isCorr?' wrong-sel':!isSel&&isCorr?' missed':'');
+      cb.className = 'opt-cb'+(isSel?' chk':'');
+    });
+
+    /* Inline feedback */
+    var fbEl = document.getElementById('fb-'+qi);
+    var fbType = isFull?'fb-ok':'fb-wrong';
+    var fbTitle = isFull?'Richtig — alle Antworten korrekt.':'Falsch — nicht alle richtigen Antworten gewählt oder falsche angekreuzt.';
+    fbEl.innerHTML = '<div class="feedback '+fbType+'"><div class="fb-title">'+fbTitle+'</div><div class="fb-text">'+q.exp+'</div><div class="fb-source">Quelle: <a href="'+q.url+'" target="_blank">'+q.src+'</a></div></div>';
+  });
+
+  showResults(correct, wrong);
+  sendToSheets(correct, wrong);
+}
+
+/* ═══════ RESULTS ═══════════════════════════════════════════════ */
+function showResults(correct, wrong) {
+  var total = S.questions.length;
+  var pct = Math.round(correct/total*100);
+  var grade, label, sub;
+  if (pct>=80){grade='A';label='Sehr gut!';sub='Prüfungsreife für dieses Thema nachgewiesen.';}
+  else if(pct>=60){grade='B';label='Gut';sub='Solide Basis — Quellenlinks gezielt nutzen.';}
+  else if(pct>=40){grade='C';label='Ausbaufähig';sub='Grundlagen vorhanden — Theorieblock nochmals lesen.';}
+  else {grade='D';label='Weiter üben';sub='Lücken mit den verlinkten Quellen schließen.';}
+
+  document.getElementById('result-grade').textContent=grade;
+  document.getElementById('result-label').textContent=label;
+  document.getElementById('result-sub').textContent=sub;
+
+  document.getElementById('stats-row').innerHTML=
+    '<div class="stat"><div class="stat-n" style="color:var(--correct)">'+correct+'</div><div class="stat-l">Richtig</div></div>'
+    +'<div class="stat"><div class="stat-n" style="color:var(--wrong)">'+wrong+'</div><div class="stat-l">Falsch</div></div>'
+    +'<div class="stat"><div class="stat-n">'+pct+'%</div><div class="stat-l">Ergebnis</div></div>';
+
+  /* Comp bars — binary */
+  var topics = S.questions.map(function(q,i){
+    var sel=S.selections[i], cor=q.correct;
+    var isFull=sel.slice().sort().join(',')===cor.slice().sort().join(',');
+    return {label:'Frage '+(i+1), pct:isFull?100:0, cls:isFull?'fill-ok':'fill-wrong'};
+  });
+  document.getElementById('comp-bars').innerHTML=topics.map(function(t){
+    return '<div class="comp-row"><div class="comp-labels"><span>'+t.label+'</span>'
+      +'<span style="color:'+(t.pct===100?'var(--correct)':'var(--wrong)')+';">'+(t.pct===100?'✓ Richtig':'✗ Falsch')+'</span></div>'
+      +'<div class="comp-track"><div class="comp-fill '+t.cls+'" style="width:'+t.pct+'%"></div></div></div>';
+  }).join('');
+
+  /* Detail review */
+  renderReview();
+
+  document.getElementById('quiz-section').style.display='none';
+  document.getElementById('results-section').style.display='block';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* ═══════ DETAIL REVIEW ══════════════════════════════════════════ */
+function renderReview() {
+  var letters = ['A','B','C','D'];
+  var container = document.getElementById('review-container');
+  container.innerHTML = '';
+
+  S.questions.forEach(function(q, qi) {
+    var sel = S.selections[qi].slice().sort().join(',');
+    var cor = q.correct.slice().sort().join(',');
+    var isFull = sel===cor;
+
+    var card = document.createElement('div');
+    card.className = 'q-card';
+    card.style.marginBottom = '.8rem';
+
+    /* Question header */
+    var header = document.createElement('div');
+    header.style.cssText = 'display:flex;gap:.6rem;align-items:baseline;margin-bottom:.5rem;';
+    var numEl = document.createElement('div');
+    numEl.className = 'q-num';
+    numEl.textContent = 'Frage '+(qi+1);
+    var badge = document.createElement('span');
+    badge.style.cssText = 'font-size:12px;font-weight:500;padding:2px 10px;border-radius:100px;'
+      +(isFull?'background:var(--correct-bg);color:var(--correct);':'background:var(--wrong-bg);color:var(--wrong);');
+    badge.textContent = isFull?'✓ Richtig':'✗ Falsch';
+    header.appendChild(numEl);
+    header.appendChild(badge);
+    card.appendChild(header);
+
+    var qEl = document.createElement('div');
+    qEl.className = 'q-text';
+    qEl.style.marginBottom = '.7rem';
+    qEl.textContent = q.q;
+    card.appendChild(qEl);
+
+    /* Options with reveal */
+    var optList = document.createElement('div');
+    optList.className = 'opt-list';
+    q.opts.forEach(function(opt, oi) {
+      var isSel  = S.selections[qi].indexOf(oi)>=0;
+      var isCorr = q.correct.indexOf(oi)>=0;
+      var row = document.createElement('div');
+      var cls = 'opt disabled';
+      if      (isSel&&isCorr)  cls+=' correct-sel';
+      else if (isSel&&!isCorr) cls+=' wrong-sel';
+      else if (!isSel&&isCorr) cls+=' missed';
+      row.className = cls;
+
+      var cb = document.createElement('div');
+      cb.className = 'opt-cb'+(isSel?' chk':'');
+      row.appendChild(cb);
+
+      var letter = document.createElement('div');
+      letter.className = 'opt-letter';
+      letter.textContent = letters[oi]+'.';
+      row.appendChild(letter);
+
+      var text = document.createElement('div');
+      text.className = 'opt-text';
+      text.textContent = opt;
+      row.appendChild(text);
+
+      optList.appendChild(row);
+    });
+    card.appendChild(optList);
+
+    /* Explanation */
+    var fbType = isFull?'fb-ok':'fb-wrong';
+    var fbTitle = isFull?'Richtig.':'Falsch.';
+    var fb = document.createElement('div');
+    fb.innerHTML = '<div class="feedback '+fbType+'" style="margin-top:.7rem">'
+      +'<div class="fb-title">'+fbTitle+'</div>'
+      +'<div class="fb-text">'+q.exp+'</div>'
+      +'<div class="fb-source">Quelle: <a href="'+q.url+'" target="_blank">'+q.src+'</a></div>'
+      +'</div>';
+    card.appendChild(fb);
+    container.appendChild(card);
+  });
+}
+
+/* ═══════ GOOGLE SHEETS ═════════════════════════════════════════ */
+function sendToSheets(correct, wrong) {
+  if (!APPS_SCRIPT_URL) return;
+  var TAG_NR = 4;
+  var THEMA  = 'Rechtliche Grundlagen II';
+  var letters = ['A','B','C','D'];
+  var role  = S.role === 'a' ? 'KI-Beauftragter' : 'Bauplanung';
+  var stufe = S.level === '1' ? 'Anfänger' : 'Fortgeschrittene';
+
+  var status = document.getElementById('submit-status');
+  status.className = 'submit-status sending';
+  status.style.display = 'block';
+  status.textContent = 'Ergebnis wird übermittelt...';
+
+  var toSend = [];
+  S.questions.forEach(function(q, i) {
+    var selIndices  = S.selections[i].slice().sort();
+    var corrIndices = q.correct.slice().sort();
+    var isFull      = selIndices.join(',') === corrIndices.join(',');
+    var gewaehlt    = selIndices.map(function(idx) { return letters[idx]; }).join(',') || '-';
+    var korrekt     = corrIndices.map(function(idx) { return letters[idx]; }).join(',');
+    var ergebnis    = isFull ? 'RICHTIG' : 'FALSCH';
+
+    toSend.push(
+      APPS_SCRIPT_URL
+      + '?tab='        + encodeURIComponent('quiz')
+      + '&teilnehmer=' + encodeURIComponent(S.name)
+      + '&tag='        + TAG_NR
+      + '&thema='      + encodeURIComponent(THEMA)
+      + '&stufe='      + encodeURIComponent(stufe + ' · ' + role)
+      + '&frage_nr='   + (i + 1)
+      + '&frage_text=' + encodeURIComponent(q.q.substring(0, 80))
+      + '&gewaehlt='   + encodeURIComponent(gewaehlt)
+      + '&korrekt='    + encodeURIComponent(korrekt)
+      + '&ergebnis='   + encodeURIComponent(ergebnis)
+    );
+  });
+
+  var idx = 0;
+  function sendNext() {
+    if (idx >= toSend.length) {
+      status.className = 'submit-status success';
+      status.textContent = '✓ ' + toSend.length + ' Antworten übermittelt ('
+        + new Date().toLocaleTimeString('de-DE') + ')';
+      return;
+    }
+    fetch(toSend[idx], { mode: 'no-cors' })
+      .catch(function() {})
+      .then(function() { idx++; setTimeout(sendNext, 400); });
+  }
+  sendNext();
+}
+
+/* ═══════ CLIPBOARD BACKUP ══════════════════════════════════════ */
+</script>
+</body>
+</html>
