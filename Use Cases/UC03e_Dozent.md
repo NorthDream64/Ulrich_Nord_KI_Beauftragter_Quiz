@@ -1,5 +1,5 @@
 # UC-03e: Externe Kooperationen — Dozenten-Hinweise
-> KI-Beauftragter · Modul 764 · TÜV Rheinland · Woche 3–4
+>Fallstudie KI-Beauftragter
 > ⚠️ Nicht für Teilnehmende
 
 ---
