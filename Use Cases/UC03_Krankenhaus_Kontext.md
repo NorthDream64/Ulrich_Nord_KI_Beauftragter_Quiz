@@ -1,5 +1,5 @@
 # UC-03 Unternehmensakte — Krankenhaus St. Ulrich
-> TÜV Rheinland · KI-Beauftragter Modul 764 · Stand: April 2026
+> Fallstudie KI-Beauftragter
 > ⚠️ Fiktives Unternehmen — alle Namen und Details sind für Schulungszwecke erstellt
 
 ---
