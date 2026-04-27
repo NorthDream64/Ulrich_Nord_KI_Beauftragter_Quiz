@@ -1,5 +1,5 @@
 # UC-03a: KI-gesteuerte Bedarfssteuerung — Verbrauchsmaterialien
-> KI-Beauftragter · Modul 764 · TÜV Rheinland · Woche 1–2
+> Fallstudie KI-Beauftragter
 
 ---
 
