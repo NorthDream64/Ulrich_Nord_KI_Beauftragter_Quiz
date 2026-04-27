@@ -1,5 +1,5 @@
 # UC-03e: Kooperation mit Kliniken, Universitäten und Pharmaunternehmen
-> KI-Beauftragter · Modul 764 · TÜV Rheinland · Woche 3–4
+> Fallstudie KI-Beauftragter
 
 ---
 
