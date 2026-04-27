@@ -1,5 +1,5 @@
 # UC-03b: Patienten-Onboarding-App — Dozenten-Hinweise
-> KI-Beauftragter · Modul 764 · TÜV Rheinland · Woche 1–2
+> Fallstudie KI-Beauftragter
 > ⚠️ Nicht für Teilnehmende
 
 ---
