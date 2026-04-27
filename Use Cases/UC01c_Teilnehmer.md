@@ -9,7 +9,7 @@ Das Bauplanungsbüro Dr. Seika hat das zugekaufte KI-System mit eigenen Kalkulat
 
 Das System funktioniert so gut, dass auf einer Branchenmesse drei Geschäftsführer befreundeter Bauplanungsbüros fragen: *„Können wir euer System auch nutzen? Wir würden 500 € pro Monat zahlen."*
 
-Die Geschäftsführung sieht eine zweite Einnahmequelle und plant, das Tool als **„Seika BauPrice"** als SaaS-Angebot zu vermarkten — mit eigenem Namen, eigener Marke, monatlicher Abrechnung. Marco Brandt, der KI-Beauftragte, soll eine Empfehlung aussprechen.
+Die Geschäftsführung sieht eine zweite Einnahmequelle und plant, das Tool als **„Akies"** als SaaS-Angebot zu vermarkten — mit eigenem Namen, eigener Marke, monatlicher Abrechnung. Marco Brandt, der KI-Beauftragte, soll eine Empfehlung aussprechen.
 
 ---
 
