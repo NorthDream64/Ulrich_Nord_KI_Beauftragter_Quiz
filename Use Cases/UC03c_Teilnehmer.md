@@ -7,7 +7,7 @@
 
 Das Krankenhaus möchte administrative Prozesse rund um Patientendaten automatisieren: Aufnahme, Terminplanung, Entlassbriefe, Bettenbelegungssteuerung und Abrechnungsdokumente. Zentrale Datenquelle ist die **Elektronische Patientenakte (EPA)**, die seit 2025 in Deutschland für alle gesetzlich Versicherten verpflichtend ist.
 
-KI-Agenten sollen teilweise autonom handeln: Termine vergeben, Entlassbriefe vorstrukturieren, Bettenbelegung optimieren. Ein Arzt oder Pflegeperson bestätigt kritische Aktionen — Ein Arzt oder Pflegeperson bestätigt kritische Aktionen — aber nicht jede. Das System unterscheidet zwischen „medizinischen" und „administrativen" Aktionen anhand einer Liste, die der Software-Anbieter beim Setup definiert hat. Bei Zeitdruck können Mitarbeitende die Vorlage-Pflicht für einzelne Aktionsklassen temporär aussetzen. In der Pilotphase wurden ca. 30 % der Systemvorschläge zur Bestätigung vorgelegt; die übrigen 70 % führte das System eigenständig aus.
+KI-Agenten sollen teilweise autonom handeln: Termine vergeben, Entlassbriefe vorstrukturieren, Bettenbelegung optimieren. Ein Arzt oder Pflegeperson bestätigt kritische Aktionen — Ein Arzt oder Pflegeperson bestätigt kritische Aktionen — aber nicht jede. Welche Aktionen als „kritisch" gelten, hat der Software-Anbieter beim Setup vorkonfiguriert: Aktionen mit medizinischer Relevanz (Medikationshinweise, vorstrukturierte Entlassbriefe) werden vorgelegt; rein organisatorische Aktionen (Terminverschiebungen, Bettenbelegung, Standardabrechnungen) führt das System eigenständig aus. Die Konfiguration kann von der IT-Leitung angepasst werden. In der Pilotphase wurden ca. 30 % der Systemvorschläge zur Bestätigung vorgelegt; die übrigen 70 % führte das System eigenständig aus.
 
 ---
 
