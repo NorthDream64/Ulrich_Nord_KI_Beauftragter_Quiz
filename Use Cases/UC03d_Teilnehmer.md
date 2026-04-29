@@ -5,11 +5,11 @@
 
 ## Szenario
 
-Das Krankenhaus führt ein KI-System zur automatisierten Auswertung von CT- und Röntgenbildern ein. Das System erkennt Muster, identifiziert Auffälligkeiten und priorisiert Behandlungspfade für das medizinische Personal. Ein Radiologe prüft und bestätigt jede Ausgabe des Systems.
+Das Krankenhaus St.Ulrich plant die Einführung eines KI-Systems zur automatisierten Auswertung von CT- und Röntgenbildern. Das System erkennt Muster, identifiziert Auffälligkeiten und priorisiert Behandlungspfade für das medizinische Personal. Ein Radiologe prüft und bestätigt jede Ausgabe des Systems.
 
 Das System wurde von einem externen Softwarehaus entwickelt. Das Krankenhaus ist Betreiber. Es wurde ein Wartungsvertrag abgeschlossen — der Anbieter ist verpflichtet, das Modell aktuell zu halten.
 
-**Achtung:** Der im Artikel beschriebene "Doom Loop" ist relevant: Längere Wartezeiten führen dazu, dass Patienten kränker werden, wenn sie endlich behandelt werden. Das bedeutet: Die Qualität der Trainingsdaten spiegelt eine durch den Doom Loop verzerrte Realität wider.
+**Achtung:** Die gegenwärtige Situation in Krankenhäusern: Längere Wartezeiten führen dazu, dass Patienten kränker werden, wenn sie endlich behandelt werden. Das bedeutet: Die Qualität der Trainingsdaten spiegelt eine durch den Doom Loop verzerrte Realität wider.
 
 ---
 
