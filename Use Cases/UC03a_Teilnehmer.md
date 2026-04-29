@@ -6,8 +6,9 @@
 ## Szenario
 
 Das Krankenhaus St. Ulrich möchte den Verbrauch von medizinischen Verbrauchsmaterialien (Handschuhe, Spritzen, Verbandsmaterial, Gefäße) mit KI optimieren. Ein ML-Modell analysiert historische Verbrauchsdaten, Belegungszahlen und saisonale Muster und schlägt automatisch Bestellmengen vor. Ziel: Engpässe vermeiden, Überbestände reduzieren, Kosten senken.
+Das Krankenhaus kauft ein fertiges System eines Logistik-Softwareanbieters zu. Das Modell wird nicht verändert. Der Anbieter wirbt damit, dass sein System bald nach ISO 42001 zertifiziert sein wird.
 
-Das Krankenhaus kauft ein fertiges System eines Logistik-Softwareanbieters zu. Das Modell wird nicht verändert. St. Ulrich hat gegenwärtig ein QM-System nach 9001, sein Informationssicherheitsmanagement-System (ISMS) ist nach 27001 zertifiziert. Die Klinikleitung fragt sich, ob ISO 42001 für dieses System überhaupt sinnvoll ist (Aufwand vs. Nutzen). Konkret fragt sie: „Brauchen wir ein AIMS auch für minimal-Risiko-KI?" Sie neigt zur der Antwort "Nein, ein AIMS für minimale Risiko-KI ist überzogen — wir haben schon 9001 und 27001, das reicht." Sie bittet die KIB um eine begründete Empfehlung.
+St. Ulrich hat gegenwärtig ein QM-System nach ISO 9001, sein Informationssicherheitsmanagement-System (ISMS) ist nach ISO 27001 zertifiziert. Die Klinikleitung fragt sich, ob ein AIMS für eine minimal-riskante KI nicht überzogen wäre und neigt zur Antwort: „Wir haben schon 9001 und 27001, das reicht." Sie bittet die KIB um eine begründete Empfehlung.
 
 ---
 
