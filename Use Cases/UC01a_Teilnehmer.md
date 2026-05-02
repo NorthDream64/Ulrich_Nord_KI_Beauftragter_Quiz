@@ -1,5 +1,5 @@
-# UC-01a: Nachtragsprüfung im Bauplanungsbüro
-> Fallstudie KI-Beauftragter
+# UC-01a: REchtliche Grundlagen & EU AI Act
+> KI-Beauftragter · KI-Manager
 
 ---
 
