@@ -1,5 +1,5 @@
-# UC-01c: Preiskalkulation mit proprietären Daten
-> KI-Beauftragter · Tag 4 (Rechtliche Grundlagen II)
+# UC-01b: Rechtliche Grundlagen & EU AI Act
+> KI-Beauftragter · KI-Manager
 
 ---
 
