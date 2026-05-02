@@ -1,6 +1,5 @@
-# UC-03a: KI-gesteuerte Bedarfssteuerung — Verbrauchsmaterialien
-> Fallstudie KI-Beauftragter
-
+# UC-03a: Management Systeme & Risikomanagement
+> KI-Beauftragter · KI-Manager
 ---
 
 ## Szenario
