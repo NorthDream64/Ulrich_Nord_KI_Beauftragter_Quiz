@@ -2,7 +2,6 @@
 ## Use Case 02 für die Tage 12–17
 
 > **alfatraining · KI-Beauftragte:r**
-> Diese Akte begleitet euch durch sechs Tage. Pro Kurstag ein Projektmonat. Behandelt sie wie einen echten Projektordner — schlagt nach, blättert zurück, vergleicht.
 >
 > ⚠️ Fiktives Unternehmen — alle Namen und Details sind für Schulungszwecke erstellt.
 
