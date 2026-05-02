@@ -11,7 +11,11 @@ Der CISO Tobias Kern ergänzt: *"Ich sehe Traffic zu OpenAI, Grammarly, DeepL, N
 
 Ihre erste Aufgabe: Eine Inventur der im Unternehmen genutzten KI-Tools erstellen — auch der nicht genehmigten.
 
-Die akuten Probleme (Schatten-KI, Purview, Richtlinie) sind adressiert. Jetzt fragt Dr. Hofer: *"Was kommt als Nächstes? Welche KI-Chancen haben wir — und welche Risiken müssen wir systematisch managen?"*
+Die akuten Probleme (Schatten-KI, Purview, Richtlinie) sind adressiert. Jetzt fragt Dr. Hofer: *"Was kommt als Nächstes? Welche KI-Chancen haben wir — und welche Risiken müssen wir systematisch managen?"
+
+Die Inventur ist abgeschlossen. Die Governance-Strukturen werden aufgebaut. Jetzt stellt Frank Neumann (Leiter Kreditabteilung) die entscheidende Frage: *"Was dürfen meine Mitarbeitenden jetzt eigentlich — und was nicht? Und wenn ChatGPT verboten ist, womit sollen sie dann arbeiten?"*
+
+Ihre Aufgabe: Eine KI-Nutzungsrichtlinie für die SolidFinanz AG entwickeln. Sie soll klar genug sein, um Verstöße zu verhindern — aber praxistauglich genug, damit Mitarbeitende sie akzeptieren und befolgen.
 
 Und dann, in einem Nebensatz: *"Unser Vorstand diskutiert, ob wir mittelfristig die Antragsprüfung mit KI unterstützen könnten. Das ist noch kein Projekt — aber ich will vorbereitet sein."*
 
