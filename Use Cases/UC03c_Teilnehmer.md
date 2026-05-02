@@ -1,5 +1,5 @@
-# UC-03c: Administrative Automatisierung mit EPA
-> Fallstudie KI-Beauftragter
+# UC-03c: Management Systeme & Risikomanagement
+> KI-Beauftragter · KI-Manager
 
 ---
 
