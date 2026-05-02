@@ -1,5 +1,5 @@
-# UC-04a: Schatten-KI-Inventur bei der SolidFinanz AG
->alfatraining · Projektaufgabe: KI-Beauftragter
+# UC-04: Projektarbeit
+> KI-Beauftragter · KI-Manager
 
 ---
 
