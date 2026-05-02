@@ -1,5 +1,5 @@
-# UC-03b: Patienten-Onboarding-App mit Lerneffekt
-> Fallstudie KI-Beauftragter
+# UC-03b: Management Systeme & Risikomanagement
+> KI-Beauftragter · KI-Manager
 
 ---
 
