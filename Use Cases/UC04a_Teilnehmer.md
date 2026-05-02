@@ -1,14 +1,13 @@
-# UC-04: Projektarbeit
+# UC-04: Projektabschlussarbeit
 > KI-Beauftragter · KI-Manager
 
 ---
 
 ## Szenario
 
-Ihr erster Arbeitstag als KI-Beauftragter:in der SolidFinanz AG. Die Vorstandsvorsitzende Dr. Hofer fasst die Lage in einem Satz zusammen: *"Ein Mitarbeiter hat einen vollständigen Kreditantrag in ChatGPT eingegeben. Ich will wissen, was sonst noch läuft — und ich will, dass es aufhört, bevor es uns die BaFin erklärt."*
+Es ist Deine erste Woche als neue KI-Beauftragte der SolidFinanz AG. Du hast die wichtigsten Stakeholder kennengelernt; Deine Rolle wurde im Unternehmen kommuniziert. Du bekommst immer mehr Anfragen und Anrufe (per E-Mail, per Telefon, per Chat - auch in der Kantine wirst Du häufig angesprochen), die "irgendwas mit KI" zu tun haben.
 
-Der CISO Tobias Kern ergänzt: *"Ich sehe Traffic zu OpenAI, Grammarly, DeepL, Notion. Aber ich kann nicht vollständig sehen, was übertragen wird — Purview ist noch nicht aktiviert."*
-
+Du findest heraus, dass ein Grund dafür, dass die Stelle des KIB überhaupt geschaffen wurde ein Vorfall war, als ein Mitarbeiter einen vollständigen Kreditantrag in ChatGPT eingegeben hatte. 
 Ihre erste Aufgabe: Eine Inventur der im Unternehmen genutzten KI-Tools erstellen — auch der nicht genehmigten.
 
 Die akuten Probleme (Schatten-KI, Purview, Richtlinie) sind adressiert. Jetzt fragt Dr. Hofer: *"Was kommt als Nächstes? Welche KI-Chancen haben wir — und welche Risiken müssen wir systematisch managen?"
