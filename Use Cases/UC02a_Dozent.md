@@ -1,5 +1,5 @@
-# UC-02a: M365 Copilot & Wissensmanagement — Dozenten-Hinweise
-> KI-Beauftragter · Modul 764 · TÜV Rheinland · Woche 1–2  
+# UC-02a: Qualitätssicherung und Change Management
+> KI-Beauftragter · KI-Manager
 > ⚠️ Nicht für Teilnehmende
 
 ---
