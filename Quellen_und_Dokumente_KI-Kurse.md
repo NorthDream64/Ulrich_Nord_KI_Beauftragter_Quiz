@@ -19,7 +19,7 @@
 | URL | Name | Typ | Schlagwörter |
 |-----|------|-----|--------------|
 | https://akademie.tuv.com/weiterbildungen/ki-beauftragter-tuev-30238361 | TÜV Rheinland — KI-Beauftragter |
-| https://www.bitkom.org/Themen | Bitkom — KI-Kompetenzzentrum | Verband | KI-Governance |
+| https://www.bitkom.org/Themen/KI-Daten | Bitkom — KI-Kompetenzzentrum | Verband | KI-Governance |
 
 ### 1.3 Datenschutz & DSGVO
 | URL | Name | Typ | Schlagwörter |
