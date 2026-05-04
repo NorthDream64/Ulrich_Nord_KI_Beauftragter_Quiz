@@ -69,6 +69,7 @@
 | https://www.humanetech.com/ | Center for Humane Technology | NGO | Attention Economy, Social Harms, AI Ethics, Tech-Kritik |
 | https://www.AlgorithmWatch.org/ | AlgorithmWatch | NGO | Algorithmische Entscheidungen, Bias, Diskriminierung |
 | https://www.ki-ideenraum.de/ | KI-Ideenraum (BMBF) | Behörde | Deutschland, Gesellschaftliche KI-Debatte |
+| https://arxiv.org/list/cs.AI/recent | arXiv (Cornell University | Universität | USA, KI-Forschung |
 
 ---
 
