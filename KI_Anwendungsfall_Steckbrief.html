@@ -275,6 +275,8 @@ hr.divider{border:none;border-top:1px solid var(--rule);margin:1rem 0;}
   <div class="step" id="step-13" onclick="goTo(13)"><div class="step-num">13</div><div class="step-label">Bewertungsausgang</div></div>
   <div class="step-sep">›</div>
   <div class="step" id="step-14" onclick="goTo(14)"><div class="step-num">☑</div><div class="step-label">Vollständigkeit</div></div>
+  <div class="step-sep">›</div>
+  <div class="step" id="step-15" onclick="goTo(15)"><div class="step-num">A</div><div class="step-label">Anhang: ISO 42001</div></div>
 </div>
 
 <div id="app">
@@ -1851,8 +1853,141 @@ hr.divider{border:none;border-top:1px solid var(--rule);margin:1rem 0;}
     <div style="display:flex;gap:0.5rem">
       <button class="btn btn-ghost" style="background:var(--navy);color:#fff" onclick="saveForm()">💾 Speichern</button>
       <button class="btn btn-primary" onclick="window.print()">🖨 Drucken / PDF</button>
+      <button class="btn btn-outline" onclick="goTo(15)">Anhang: ISO 42001 →</button>
     </div>
   </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════════
+     ANHANG — ISO/IEC 42001 ZERTIFIZIERUNGS-CHECKLISTE (TÜV Rheinland)
+     NEU: 2026-05-18
+════════════════════════════════════════════════════════════════ -->
+<div class="form-section" id="section-15">
+  <div class="section-header" style="border-left-color:var(--teal)">
+    <div class="section-tag">Anhang · Referenzinstrument</div>
+    <h2>ISO/IEC 42001 — Zertifizierungs-Checkliste</h2>
+    <p>Selbstbewertung der Zertifizierungsreife nach dem Instrument von TÜV Rheinland. 22 Ja/Nein-Fragen in 6 Phasen. Auswertung: 0–9 = Grundarbeit erforderlich · 10–16 = auf dem Weg · 17–22 = zertifizierungsreif.</p>
+    <div class="kursreferenz">Quelle: TÜV Rheinland — „Sind Sie bereit für Ihre ISO/IEC 42001-Zertifizierung?" (2025) · Einsatz: KI-Manager Tag 2</div>
+  </div>
+
+  <style>
+    .tuev-phase{background:var(--white);border:1px solid var(--rule);border-radius:var(--radius);margin-bottom:1rem;overflow:hidden;}
+    .tuev-phase-head{background:var(--navy);color:#fff;padding:.6rem 1.2rem;font-family:var(--font-mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;display:flex;align-items:center;gap:.6rem;}
+    .tuev-phase-num{background:rgba(255,255,255,.2);border-radius:50%;width:1.4rem;height:1.4rem;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;flex-shrink:0;}
+    .tuev-phase-title{font-size:.72rem;}
+    .tuev-item{display:flex;align-items:flex-start;gap:1rem;padding:.7rem 1.2rem;border-bottom:1px solid var(--rule);font-size:.87rem;line-height:1.5;}
+    .tuev-item:last-child{border-bottom:none;}
+    .tuev-item-text{flex:1;}
+    .tuev-item-text strong{display:block;font-size:.72rem;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.08em;color:var(--teal);margin-bottom:.2rem;}
+    .tuev-tip{font-size:.78rem;color:#888;margin-top:.25rem;font-style:italic;}
+    .tuev-toggle{display:flex;gap:.4rem;flex-shrink:0;align-items:center;}
+    .tuev-btn{font-family:var(--font-mono);font-size:.65rem;font-weight:600;padding:.25em .7em;border-radius:3px;border:1.5px solid var(--rule);background:var(--paper);cursor:pointer;letter-spacing:.05em;transition:all .15s;}
+    .tuev-btn.ja{border-color:var(--ok);background:#e8f5e9;color:var(--ok);}
+    .tuev-btn.nein{border-color:var(--danger);background:#fce8e8;color:var(--danger);}
+    .tuev-score-bar{background:var(--white);border:1px solid var(--rule);border-radius:var(--radius);padding:1.2rem 1.5rem;margin-bottom:1rem;}
+    .tuev-score-label{font-family:var(--font-mono);font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;color:#888;margin-bottom:.5rem;}
+    .tuev-score-track{height:10px;background:var(--soft);border-radius:5px;overflow:hidden;margin-bottom:.5rem;}
+    .tuev-score-fill{height:100%;background:var(--teal);border-radius:5px;transition:width .4s;}
+    .tuev-score-text{font-size:.87rem;font-weight:500;color:var(--ink);}
+    .tuev-verdict{display:inline-block;margin-top:.4rem;padding:.2em .8em;border-radius:var(--radius);font-family:var(--font-mono);font-size:.65rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;}
+    .tuev-verdict.low{background:#fce8e8;color:var(--danger);}
+    .tuev-verdict.mid{background:#fff8e1;color:var(--amber);}
+    .tuev-verdict.high{background:#e8f5e9;color:var(--ok);}
+  </style>
+
+  <!-- Score-Anzeige -->
+  <div class="tuev-score-bar">
+    <div class="tuev-score-label">Ja-Antworten</div>
+    <div class="tuev-score-track"><div class="tuev-score-fill" id="tuev-bar" style="width:0%"></div></div>
+    <div class="tuev-score-text" id="tuev-score-text">0 von 22</div>
+    <div id="tuev-verdict"></div>
+  </div>
+
+  <!-- Phase 1 -->
+  <div class="tuev-phase">
+    <div class="tuev-phase-head"><div class="tuev-phase-num">1</div><div class="tuev-phase-title">Grundlegendes Verständnis und Vorbereitung</div></div>
+    <div class="tuev-item"><div class="tuev-item-text"><strong>Kenntnis der Norm</strong>Haben Sie die Anforderungen der ISO/IEC 42001 im Detail verstanden?<div class="tuev-tip">Tipp: Besorgen Sie sich die Norm und lesen Sie die Anforderungen sorgfältig durch.</div></div><div class="tuev-toggle"><button class="tuev-btn" onclick="tuevVote(this,'ja')">JA</button><button class="tuev-btn" onclick="tuevVote(this,'nein')">NEIN</button></div></div>
+    <div class="tuev-item"><div class="tuev-item-text"><strong>Sensibilisierung im Unternehmen</strong>Wissen die betroffenen Akteure, warum die Zertifizierung wichtig ist?<div class="tuev-tip">Tipp: Kommunizieren Sie die Vorteile wie Risikominderung und Wettbewerbsvorteile.</div></div><div class="tuev-toggle"><button class="tuev-btn" onclick="tuevVote(this,'ja')">JA</button><button class="tuev-btn" onclick="tuevVote(this,'nein')">NEIN</button></div></div>
+    <div class="tuev-item"><div class="tuev-item-text"><strong>Ressourcenplanung</strong>Haben Sie die notwendigen internen und externen Ressourcen für die Umsetzung bereitgestellt?</div><div class="tuev-toggle"><button class="tuev-btn" onclick="tuevVote(this,'ja')">JA</button><button class="tuev-btn" onclick="tuevVote(this,'nein')">NEIN</button></div></div>
+  </div>
+
+  <!-- Phase 2 -->
+  <div class="tuev-phase">
+    <div class="tuev-phase-head"><div class="tuev-phase-num">2</div><div class="tuev-phase-title">Analyse des aktuellen Stands</div></div>
+    <div class="tuev-item"><div class="tuev-item-text"><strong>Gap-Analyse</strong>Haben Sie geprüft, inwieweit Ihre bestehenden Prozesse die Anforderungen bereits erfüllen?<div class="tuev-tip">Tipp: Nutzen Sie ein Selbstbewertungstool oder eine externe Beratung.</div></div><div class="tuev-toggle"><button class="tuev-btn" onclick="tuevVote(this,'ja')">JA</button><button class="tuev-btn" onclick="tuevVote(this,'nein')">NEIN</button></div></div>
+    <div class="tuev-item"><div class="tuev-item-text"><strong>Risikomanagement</strong>Verfügen Sie über ein Risikomanagementsystem, das speziell auf KI-Anwendungen ausgerichtet ist?<div class="tuev-tip">Tipp: Erkennen Sie Risiken wie Datenlecks, Verzerrungen in Algorithmen und Compliance-Verstöße.</div></div><div class="tuev-toggle"><button class="tuev-btn" onclick="tuevVote(this,'ja')">JA</button><button class="tuev-btn" onclick="tuevVote(this,'nein')">NEIN</button></div></div>
+    <div class="tuev-item"><div class="tuev-item-text"><strong>Dokumentation</strong>Haben Sie die erforderlichen Unterlagen überprüft und aktualisiert (KI-Politik, KI-Risikobewertung, KI-Folgenabschätzung)?</div><div class="tuev-toggle"><button class="tuev-btn" onclick="tuevVote(this,'ja')">JA</button><button class="tuev-btn" onclick="tuevVote(this,'nein')">NEIN</button></div></div>
+  </div>
+
+  <!-- Phase 3 -->
+  <div class="tuev-phase">
+    <div class="tuev-phase-head"><div class="tuev-phase-num">3</div><div class="tuev-phase-title">Einführung des Systems</div></div>
+    <div class="tuev-item"><div class="tuev-item-text"><strong>Definition von Verantwortlichkeiten</strong>Sind im Rahmen des Managementsystems klare Rollen und Verantwortlichkeiten definiert?</div><div class="tuev-toggle"><button class="tuev-btn" onclick="tuevVote(this,'ja')">JA</button><button class="tuev-btn" onclick="tuevVote(this,'nein')">NEIN</button></div></div>
+    <div class="tuev-item"><div class="tuev-item-text"><strong>Ausbildung der Mitarbeitenden</strong>Haben Sie die zuständigen Teams zu den Anforderungen und Verfahren der Norm geschult?</div><div class="tuev-toggle"><button class="tuev-btn" onclick="tuevVote(this,'ja')">JA</button><button class="tuev-btn" onclick="tuevVote(this,'nein')">NEIN</button></div></div>
+    <div class="tuev-item"><div class="tuev-item-text"><strong>Technische Maßnahmen</strong>Haben Sie geeignete technische Sicherheitsmaßnahmen implementiert (Leistungsüberwachung, Änderungskontrolle, Aktualisierung von Anwendungen)?</div><div class="tuev-toggle"><button class="tuev-btn" onclick="tuevVote(this,'ja')">JA</button><button class="tuev-btn" onclick="tuevVote(this,'nein')">NEIN</button></div></div>
+  </div>
+
+  <!-- Phase 4 -->
+  <div class="tuev-phase">
+    <div class="tuev-phase-head"><div class="tuev-phase-num">4</div><div class="tuev-phase-title">Kontrollen gemäß Anhang A (ISO 42001)</div></div>
+    <div class="tuev-item"><div class="tuev-item-text"><strong>A.2 — KI-Politik</strong>Stimmen Ihre KI-Richtlinien mit anderen Unternehmensrichtlinien überein und werden sie regelmäßig auf Relevanz und Wirksamkeit überprüft?</div><div class="tuev-toggle"><button class="tuev-btn" onclick="tuevVote(this,'ja')">JA</button><button class="tuev-btn" onclick="tuevVote(this,'nein')">NEIN</button></div></div>
+    <div class="tuev-item"><div class="tuev-item-text"><strong>A.3 — Interne Organisation</strong>Haben Sie interne Verantwortlichkeiten für Ihre KI-Systeme festgelegt, inkl. Meldeverfahren für Bedenken im gesamten KI-Lebenszyklus?</div><div class="tuev-toggle"><button class="tuev-btn" onclick="tuevVote(this,'ja')">JA</button><button class="tuev-btn" onclick="tuevVote(this,'nein')">NEIN</button></div></div>
+    <div class="tuev-item"><div class="tuev-item-text"><strong>A.4 — Ressourcen für KI-Systeme</strong>Haben Sie alle Ressourcen dokumentiert, die für Ihr KI-System wichtig sind (Systemkomponenten, Datenressourcen, Tools, Personal)?</div><div class="tuev-toggle"><button class="tuev-btn" onclick="tuevVote(this,'ja')">JA</button><button class="tuev-btn" onclick="tuevVote(this,'nein')">NEIN</button></div></div>
+    <div class="tuev-item"><div class="tuev-item-text"><strong>A.5 — Folgenabschätzung</strong>Verfügen Sie über ein formelles Verfahren zur Bewertung der Auswirkungen Ihres KI-Systems auf Einzelpersonen, Gruppen und die Gesellschaft?</div><div class="tuev-toggle"><button class="tuev-btn" onclick="tuevVote(this,'ja')">JA</button><button class="tuev-btn" onclick="tuevVote(this,'nein')">NEIN</button></div></div>
+    <div class="tuev-item"><div class="tuev-item-text"><strong>A.6 — Lebenszyklus</strong>Können Sie sicherstellen, dass Ihre KI-Systeme wie vorgesehen funktionieren und während ihrer gesamten Betriebsdauer überwacht werden (Betrieb, Reparaturen, Updates, Support)?</div><div class="tuev-toggle"><button class="tuev-btn" onclick="tuevVote(this,'ja')">JA</button><button class="tuev-btn" onclick="tuevVote(this,'nein')">NEIN</button></div></div>
+    <div class="tuev-item"><div class="tuev-item-text"><strong>A.7 — Daten</strong>Haben Sie Datenmanagementprozesse definiert, dokumentiert und implementiert, die Datenqualität, -herkunft und -aufbereitung abdecken?</div><div class="tuev-toggle"><button class="tuev-btn" onclick="tuevVote(this,'ja')">JA</button><button class="tuev-btn" onclick="tuevVote(this,'nein')">NEIN</button></div></div>
+    <div class="tuev-item"><div class="tuev-item-text"><strong>A.8 — Transparenz gegenüber Stakeholdern</strong>Informieren Sie relevante Parteien über Risiken, Auswirkungen und Managementstrategien Ihrer KI-Systeme (inkl. Vorfallsmeldungen und Beschwerdemöglichkeiten)?</div><div class="tuev-toggle"><button class="tuev-btn" onclick="tuevVote(this,'ja')">JA</button><button class="tuev-btn" onclick="tuevVote(this,'nein')">NEIN</button></div></div>
+    <div class="tuev-item"><div class="tuev-item-text"><strong>A.9 — Ethischer Einsatz</strong>Können Sie den ethisch verantwortungsvollen Einsatz Ihrer KI-Systeme durch definierte und dokumentierte Prozesse sicherstellen?</div><div class="tuev-toggle"><button class="tuev-btn" onclick="tuevVote(this,'ja')">JA</button><button class="tuev-btn" onclick="tuevVote(this,'nein')">NEIN</button></div></div>
+    <div class="tuev-item"><div class="tuev-item-text"><strong>A.10 — Drittbeziehungen</strong>Können Sie Verantwortlichkeit und klares Risikomanagement in Lieferanten- und Kundenbeziehungen nachweisen und mit Ihrem Ansatz für verantwortungsvolle KI vereinbaren?</div><div class="tuev-toggle"><button class="tuev-btn" onclick="tuevVote(this,'ja')">JA</button><button class="tuev-btn" onclick="tuevVote(this,'nein')">NEIN</button></div></div>
+  </div>
+
+  <!-- Phase 5 -->
+  <div class="tuev-phase">
+    <div class="tuev-phase-head"><div class="tuev-phase-num">5</div><div class="tuev-phase-title">Interne Prüfung durch eine externe Stelle</div></div>
+    <div class="tuev-item"><div class="tuev-item-text"><strong>Internes Audit</strong>Haben Sie ein internes Audit mit einer externen Zertifizierungsstelle durchgeführt, um die Konformität mit den Anforderungen der Norm zu bewerten?</div><div class="tuev-toggle"><button class="tuev-btn" onclick="tuevVote(this,'ja')">JA</button><button class="tuev-btn" onclick="tuevVote(this,'nein')">NEIN</button></div></div>
+    <div class="tuev-item"><div class="tuev-item-text"><strong>Abhilfemaßnahmen</strong>Wurden Lücken und Abweichungen durch konkrete Maßnahmen geschlossen?</div><div class="tuev-toggle"><button class="tuev-btn" onclick="tuevVote(this,'ja')">JA</button><button class="tuev-btn" onclick="tuevVote(this,'nein')">NEIN</button></div></div>
+  </div>
+
+  <!-- Phase 6 -->
+  <div class="tuev-phase">
+    <div class="tuev-phase-head"><div class="tuev-phase-num">6</div><div class="tuev-phase-title">Zertifizierungsverfahren durch eine akkreditierte Stelle</div></div>
+    <div class="tuev-item"><div class="tuev-item-text"><strong>Zertifizierungsstelle ausgewählt</strong>Haben Sie sich an eine akkreditierte Zertifizierungsstelle gewandt?</div><div class="tuev-toggle"><button class="tuev-btn" onclick="tuevVote(this,'ja')">JA</button><button class="tuev-btn" onclick="tuevVote(this,'nein')">NEIN</button></div></div>
+    <div class="tuev-item"><div class="tuev-item-text"><strong>Vorbereitung abgeschlossen</strong>Haben Sie alle relevanten Unterlagen zusammengestellt und Ihr Team auf die externe Prüfung vorbereitet?</div><div class="tuev-toggle"><button class="tuev-btn" onclick="tuevVote(this,'ja')">JA</button><button class="tuev-btn" onclick="tuevVote(this,'nein')">NEIN</button></div></div>
+  </div>
+
+  <div class="form-card" style="font-size:.82rem;color:#888;line-height:1.6;">
+    Quelle: TÜV Rheinland — <em>„Sind Sie bereit für Ihre ISO/IEC 42001-Zertifizierung?"</em> (Checkliste, 2025). Eingebettet in den KI-Anwendungsfall-Steckbrief als Referenzinstrument für KI-Manager:innen. Das Original-PDF ist direkt bei TÜV Rheinland erhältlich.
+  </div>
+
+  <div class="section-nav">
+    <button class="btn btn-outline" onclick="goTo(14)">← Vollständigkeit</button>
+    <div class="section-counter">Anhang</div>
+    <button class="btn btn-primary" onclick="window.print()">🖨 Drucken / PDF</button>
+  </div>
+
+  <script>
+  function tuevVote(btn, val) {
+    const toggle = btn.closest('.tuev-toggle');
+    toggle.querySelectorAll('.tuev-btn').forEach(b => { b.classList.remove('ja','nein'); });
+    btn.classList.add(val);
+    updateTuevScore();
+  }
+  function updateTuevScore() {
+    const jaCount = document.querySelectorAll('#section-15 .tuev-btn.ja').length;
+    const total = 22;
+    const pct = Math.round(jaCount / total * 100);
+    document.getElementById('tuev-bar').style.width = pct + '%';
+    document.getElementById('tuev-score-text').textContent = jaCount + ' von ' + total + ' Ja-Antworten (' + pct + '%)';
+    const vEl = document.getElementById('tuev-verdict');
+    if (jaCount <= 9) {
+      vEl.innerHTML = '<span class="tuev-verdict low">Grundarbeit erforderlich (0–9)</span>';
+    } else if (jaCount <= 16) {
+      vEl.innerHTML = '<span class="tuev-verdict mid">Auf dem richtigen Weg (10–16)</span>';
+    } else {
+      vEl.innerHTML = '<span class="tuev-verdict high">Zertifizierungsreif (17–22)</span>';
+    }
+  }
+  </script>
 </div>
 
 </div><!-- #app -->
