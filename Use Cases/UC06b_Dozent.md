@@ -40,23 +40,25 @@ Gesparte Stunden: 1.040,4 h/Jahr = **0,59 FTE** (220 Arbeitstage × 8 h = 1.760 
 
 ### Investitionskosten
 
-Einmalig: **75.000 €** · Jährl. Betrieb: **20.000 €**
+Einmalig: **75.000 €** · Jährl. Betrieb: **15.000 €** (Cloud-Infrastruktur 8.000 € + Updates, Re-Training & Fine-Tuning 7.000 €)
 
 ### ROI-Kennzahlen
 
 | Kennzahl | Rechnung | Ergebnis |
 |---|---|---|
-| Netto-Monatsvorteil | (124.848 − 20.000) ÷ 12 | **8.737 €/Monat** |
-| Payback Period | 75.000 ÷ 8.737 | **8,6 Monate** |
+| Netto-Monatsvorteil | (124.848 − 15.000) ÷ 12 | **9.154 €/Monat** |
+| Payback Period | 75.000 ÷ 9.154 | **8,2 Monate** |
 | Break-even | kumulierter Cashflow ≥ 0 | **Monat 9** |
-| ROI (3 Jahre) | (374.544 − 135.000) ÷ 135.000 | **177 %** |
+| ROI (3 Jahre) | (374.544 − 120.000) ÷ 120.000 | **212 %** |
 
 ### 5-Jahres-Timeline
 
 | | Jahr 0 | Jahr 1 | Jahr 2 | Jahr 3 | Jahr 4 | Jahr 5 |
 |---|---|---|---|---|---|---|
-| Netto-Cashflow | −75.000 € | +104.848 € | +104.848 € | +104.848 € | +104.848 € | +104.848 € |
-| **Kumuliert** | **−75.000 €** | **+29.848 €** | **+134.696 €** | **+239.544 €** | **+344.392 €** | **+449.240 €** |
+| Einmalige Investition | −75.000 € | — | — | — | — | — |
+| Jährl. Betriebskosten | — | −15.000 € | −15.000 € | −15.000 € | −15.000 € | −15.000 € |
+| Netto-Cashflow | −75.000 € | +109.848 € | +109.848 € | +109.848 € | +109.848 € | +109.848 € |
+| **Kumuliert** | **−75.000 €** | **+34.848 €** | **+144.696 €** | **+254.544 €** | **+364.392 €** | **+474.240 €** |
 
 ---
 
@@ -64,13 +66,13 @@ Einmalig: **75.000 €** · Jährl. Betrieb: **20.000 €**
 
 | Szenario | Anpassung | Einsparung/J | ROI (3J) | Payback | Empfehlung |
 |---|---|---|---|---|---|
-| Base Case | 70 %/50 %, 17/Mo. | 124.848 € | **177 %** | 8,6 Mo. | ✅ Go |
-| Worst Case | 50 %/35 % Effizienz | 88.128 € | **96 %** | 13,2 Mo. | ✅ Go |
-| Weniger Volumen | 10 statt 17/Mo. | 73.440 € | **63 %** | 17,0 Mo. | ⚠ Go mit Vorbehalt |
-| Höhere Kosten | 100.000 € Erstinvestition | 124.848 € | **134 %** | 11,4 Mo. | ✅ Go |
-| Best Case | 80 %/60 % Effizienz | 146.880 € | **226 %** | 7,1 Mo. | ✅ Go mit Priorität |
+| Base Case | 70 %/50 %, 17/Mo. | 124.848 € | **212 %** | 8,2 Mo. | ✅ Go |
+| Worst Case | 50 %/35 % Effizienz | 88.128 € | **120 %** | 12,3 Mo. | ✅ Go |
+| Weniger Volumen | 10 statt 17/Mo. | 73.440 € | **84 %** | 15,4 Mo. | ✅ Go |
+| Höhere Kosten | 100.000 € Erstinvestition | 124.848 € | **158 %** | 10,9 Mo. | ✅ Go |
+| Best Case | 80 %/60 % Effizienz | 146.880 € | **267 %** | 6,8 Mo. | ✅ Go mit Priorität |
 
-**Kernbotschaft für Teilnehmende:** Selbst im Worst Case (50 %/35 % Effizienz) liegt der ROI bei 96 % über 3 Jahre. Das ist eine außergewöhnlich robuste Empfehlung — verglichen mit typischen IT-Projekten im Mittelstand.
+**Kernbotschaft für Teilnehmende:** Selbst im Worst Case (50 %/35 % Effizienz) liegt der ROI bei 120 % über 3 Jahre — und selbst bei halbiertem Volumen (10/Monat) noch bei 84 %. Alle Szenarien sind Go. Das ist eine außergewöhnlich robuste Empfehlung — verglichen mit typischen IT-Projekten im Mittelstand.
 
 ---
 
@@ -79,11 +81,11 @@ Einmalig: **75.000 €** · Jährl. Betrieb: **20.000 €**
 Ab welchem Monatsvolumen amortisiert sich das Projekt innerhalb von 24 Monaten?
 
 Bedingung: Netto-Monatsvorteil ≥ 75.000 ÷ 24 = 3.125 €/Monat  
-→ (Jährl. Einsparung − 20.000) ÷ 12 ≥ 3.125  
-→ Jährl. Einsparung ≥ 57.500 €  
-→ Bei 70 %/50 % Effizienz: Mindest-Vorgänge/Monat ≈ **6,6** (also ab 7/Monat)
+→ (Jährl. Einsparung − 15.000) ÷ 12 ≥ 3.125  
+→ Jährl. Einsparung ≥ 52.500 €  
+→ Bei 70 %/50 % Effizienz: Mindest-Vorgänge/Monat ≈ **7,2** (also ab 8/Monat)
 
-Das bedeutet: Selbst wenn die AI GmbH nur 7 Proposals/Monat hätte, wäre das Projekt innerhalb von 24 Monaten amortisiert. Das schärft das Verständnis für die Skalierungshebel.
+Das bedeutet: Selbst wenn die AI GmbH nur 8 Proposals/Monat hätte, wäre das Projekt innerhalb von 24 Monaten amortisiert. Das schärft das Verständnis für die Skalierungshebel.
 
 ---
 
@@ -93,8 +95,8 @@ Das bedeutet: Selbst wenn die AI GmbH nur 7 Proposals/Monat hätte, wäre das Pr
 |---|---|
 | **Problem** | 220.320 €/Jahr Screening-Kosten · Kapazitätsdeckel bei 20 Proposals/Monat · Inkonsistente Bewertungsqualität |
 | **Lösung** | KI-gestütztes NLP-Screening + Detailbewertungs-Support · Human-in-the-Loop · Integration Crunchbase/PitchBook |
-| **Kosten** | 75.000 € einmalig + 20.000 €/Jahr = 135.000 € über 3 Jahre |
-| **Harter Nutzen** | 124.848 €/Jahr · ROI 177 % · Payback 8,6 Monate · Break-even Monat 9 |
+| **Kosten** | 75.000 € einmalig + 15.000 €/Jahr = 120.000 € über 3 Jahre |
+| **Harter Nutzen** | 124.848 €/Jahr · ROI 212 % · Payback 8,2 Monate · Break-even Monat 9 |
 | **Weicher Nutzen** | Kapazitätsskalierung auf 25–30 Proposals/Monat · konsistenteres Scoring · schnellere Time-to-Decision · LP-Reporting-Qualität |
 | **Opportunitätskosten** | 220.320 €/Jahr bleiben · Fondswachstum auf 100 Mio. € ohne Kapazitätsaufbau nicht erreichbar |
 | **Empfehlung** | ✅ Go — vorbehaltlich: ML-Engineering-Ressource (Ben Fischer, ~40 % FTE), DSGVO-Prüfung Gründer-Scoring, KAGB-konformes Dokumentationskonzept |
