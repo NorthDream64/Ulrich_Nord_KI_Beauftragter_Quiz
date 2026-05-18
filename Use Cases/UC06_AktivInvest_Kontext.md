@@ -9,7 +9,7 @@
 **Aktiv-Invest (AI) GmbH**, München  
 Spezialisierter Venture-Capital-Fonds mit Fokus auf KI-getriebene Geschäftsmodelle  
 Gründung: 2021 · Mitarbeitende: 8 (Investment-Team) · Fondvolumen: 15 Mio. EUR  
-Zielvolumen 2029: 100 Mio. EUR · Finanzierung durch private Anleger (LPs)
+Zielvolumen 2029: 100 Mio. EUR · Finanzierung durch private Anleger
 
 **Investitionsstrategie:**
 - Frühphasenfinanzierung (Seed bis Series A) in KI-native Unternehmen
@@ -45,7 +45,7 @@ Bevorzugt Börsengänge (IPO) — auch Verkäufe an strategische Erwerber oder a
 ## Personen
 
 ### Dr. Markus Vogt — Geschäftsführer (Managing Partner)
-42 Jahre. Ex-McKinsey, dann CFO eines mittelständischen SaaS-Unternehmens. Hat die AI GmbH mit dem Eigenkapital aus dem Exit gegründet. Strategischer Denker, ungeduldig bei Prozessfragen. Will Skalierung: „In drei Jahren wollen wir 50 Proposals pro Monat scouten — das schaffen wir nicht mit dem gleichen Team." Technikaffin, aber kein Entwickler. Hat das Mandat gegeben, KI für den Investment-Prozess zu evaluieren.
+42 Jahre. Ex-McKinsey, dann CFO eines mittelständischen SaaS-Unternehmens. Hat die AI GmbH mit seinem Eigenkapital gegründet. Strategischer Denker, ungeduldig bei Prozessfragen. Will Skalierung: „In drei Jahren wollen wir 50 Proposals pro Monat scouten — das schaffen wir nicht mit dem gleichen Team." Technikaffin, aber kein Entwickler. Hat das Mandat gegeben, KI für den Investment-Prozess zu evaluieren.
 
 ### Sophie Krane — Portfoliomanager:in (die Kursrolle)
 34 Jahre. Betriebswirtschaftlerin mit Schwerpunkt Corporate Finance. 4 Jahre Investmentbanking, dann 2 Jahre bei einem Berliner VC-Fonds. Bei der AI GmbH seit 9 Monaten. Sitzt täglich mit 2–4 Proposals auf dem Schreibtisch, schätzt strukturierte Entscheidungsrahmen, ist skeptisch gegenüber KI-Hype, aber offen für gut begründete Automatisierung. Sie ist die Kursrolle: *„Ich brauche ein Verfahren, das mir bei der Vorauswahl hilft — ohne dass ich die Kontrolle über die Entscheidung verliere."*

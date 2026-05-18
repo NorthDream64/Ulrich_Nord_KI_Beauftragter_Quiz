@@ -6,7 +6,7 @@
 
 ## Szenario
 
-Du bist Portfoliomanager:in der **Aktiv-Invest (AI) GmbH**, einem Münchner Venture-Capital-Fonds mit Fokus auf KI-Investitionen. Das Fondvolumen liegt bei 15 Mio. EUR und soll in den nächsten vier Jahren auf 100 Mio. EUR wachsen.
+Du bist Portfoliomanager:in der **Aktiv-Invest (AI) GmbH**, einem Hamburger Venture-Capital-Fonds mit Fokus auf KI-Investitionen. Das Fondvolumen liegt bei 15 Mio. EUR und soll in den nächsten vier Jahren auf 100 Mio. EUR wachsen.
 
 Monatlich landen **15–20 Investitionsvorschläge** auf Deinem Schreibtisch — von Gründerteams, Co-Investoren und Deal-Sourcing-Plattformen. Jeder dieser Proposals muss zunächst in einer **Go/No-Go-Entscheidung (Phase 1)** vorqualifiziert werden, bevor aufwendige Detailanalysen starten.
 

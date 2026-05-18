@@ -5,7 +5,7 @@
 
 ## Szenario
 
-Du bist Portfoliomanager:in der **Aktiv-Invest (AI) GmbH**, einem Münchner Venture-Capital-Fonds mit Fokus auf KI-Investitionen. Deine Arbeit besteht aus zwei Kernaufgaben:
+Du bist Portfoliomanager:in der **Aktiv-Invest (AI) GmbH**, einem Hamburger Venture-Capital-Fonds mit Fokus auf KI-Investitionen. Deine Arbeit besteht aus zwei Kernaufgaben:
 
 **① Neue Vorhaben bewerten**  
 Monatlich landen **15–20 Investitionsvorschläge** auf Deinem Schreibtisch. Du brauchst ein Verfahren, um relativ schnell (z. B. anhand einer Recherche der einschlägigen Marktquellen) die Chancen eines Vorhabens grob zu bewerten (**Phase 1: Go/No-Go-Entscheidung**), um dann in **Phase 2** (konkreter Invest) eine Rentabilitätsrechnung (ROI und DCF) mit pessimistic, medium, optimistic Szenarien zu erstellen.
@@ -17,7 +17,7 @@ Vorhaben, in die die Aktiv-Invest (AI) GmbH investiert hat, laufend, aber mögli
 
 ## Das Unternehmen
 
-Die Aktiv-Invest (AI) GmbH wird von privaten Anlegern (LPs) finanziert. Das Fondvolumen beläuft sich auf **15 Mio. EUR** und soll in den kommenden 4 Jahren auf **100 Mio. EUR** anwachsen. Als Exitstrategien werden Börsengänge (IPO) bevorzugt, aber auch Verkäufe an andere Unternehmen (M&A) sind denkbar.
+Die Aktiv-Invest (AI) GmbH wird von privaten Anlegern finanziert. Das Fondvolumen beläuft sich auf **15 Mio. EUR** und soll in den kommenden 4 Jahren auf **100 Mio. EUR** anwachsen. Als Exitstrategien werden Börsengänge (IPO) bevorzugt, aber auch Verkäufe an andere Unternehmen (M&A) sind denkbar.
 
 → Vollständiger Unternehmenskontext: `UC06_AktivInvest_Kontext.md`
 
