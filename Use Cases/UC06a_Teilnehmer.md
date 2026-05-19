@@ -12,7 +12,7 @@ Monatlich landen **15–20 Investitionsvorschläge** auf Deinem Schreibtisch —
 
 **Das heutige Problem:** Die Grobprüfung eines Proposals dauert durchschnittlich 2–3 Stunden — Recherche zu Markt, Wettbewerbern, Technologie-Reifegrad und Gründer-Background. Bei 17 Proposals pro Monat bindet das mehr als 40 Analysten-Stunden allein für die Vorauswahl. Das sind Kapazitäten, die für tiefere Analysen fehlen.
 
-Dr. Vogt (Geschäftsführer) hat Dich gebeten, ein KI-gestütztes Screening-System zu konzipieren, das die Phase-1-Bearbeitung deutlich beschleunigt — ohne die Entscheidungsqualität zu verschlechtern — und gleichzeitig den wirtschaftlichen Nutzen dieser Investition als ROI-Berechnung zu belegen.
+Dr. Vogt (Geschäftsführerin) hat Dich gebeten, ein KI-gestütztes Screening-System zu konzipieren, das die Phase-1-Bearbeitung deutlich beschleunigt — ohne die Entscheidungsqualität zu verschlechtern — und gleichzeitig den wirtschaftlichen Nutzen dieser Investition als ROI-Berechnung zu belegen.
 
 ---
 
@@ -57,7 +57,7 @@ Berechne den **Return on Investment (ROI)** für die Einführung des KI-gestütz
 
 ## Ergebnis
 
-Präsentiere Dein Konzept in einem strukturierten Dokument oder einer Kurzpräsentation (4–6 Folien oder 3–4 Seiten). Adressat ist Dr. Vogt im wöchentlichen Team-Meeting — er hat 20 Minuten für Deine Präsentation eingeplant.
+Präsentiere Dein Konzept in einem strukturierten Dokument oder einer Kurzpräsentation (4–6 Folien oder 3–4 Seiten). Adressat ist Dr. Vogt im wöchentlichen Team-Meeting — sie hat 20 Minuten für Deine Präsentation eingeplant.
 
 Das Dokument soll u. a. beantworten:
 - Wie sieht das Screening-System aus? (Architektur, Quellen, Ausgabe)

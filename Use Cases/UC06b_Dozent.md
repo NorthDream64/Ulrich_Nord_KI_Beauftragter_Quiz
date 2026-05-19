@@ -109,7 +109,7 @@ Das bedeutet: Selbst wenn die AI GmbH nur 8 Proposals/Monat hätte, wäre das Pr
 
 **Warum ist der ROI so hoch?** Das Investment-Umfeld hat extrem hohe Stundensätze (120 €/h Analyst) kombiniert mit hohem Volumen und starker Automatisierbarkeit der Recherche-Arbeit. Das ist kein ungewöhnliches Ergebnis für wissensintensive Prozesse mit hoher Wiederholungsrate — und genau der Grund, warum KI im Finance-Bereich so schnell ROI erzeugt.
 
-**Weiche Nutzen als strategische Argumente:** Die Skalierung auf 25–30 Proposals/Monat ist das eigentliche strategische Argument. Das unterstützt das Fondswachstumsziel direkt — und das kann Sophie Krane gegenüber Dr. Vogt quantifizieren: 30 Proposals × 3x Return-Multiple × Ø 1 Mio. EUR Ticket → potenziell deutlich mehr Deal-Flow-Kapazität pro Jahr.
+**Weiche Nutzen als strategische Argumente:** Die Skalierung auf 25–30 Proposals/Monat ist das eigentliche strategische Argument. Das unterstützt das Fondswachstumsziel direkt — und das kann Sophie Krane gegenüber Frau Dr. Vogt quantifizieren: 30 Proposals × 3x Return-Multiple × Ø 1 Mio. EUR Ticket → potenziell deutlich mehr Deal-Flow-Kapazität pro Jahr.
 
 ---
 
