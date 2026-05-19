@@ -1,5 +1,4 @@
 # UC-01c: Rechtliche Grundlagen & EU AI Act
-> KI-Beauftragter · KI-Manager
 
 ---
 
