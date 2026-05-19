@@ -1,5 +1,4 @@
 # UC-03d: Management Systeme & Risikomanagement
-> KI-Beauftragter · KI-Manager
 
 ---
 
