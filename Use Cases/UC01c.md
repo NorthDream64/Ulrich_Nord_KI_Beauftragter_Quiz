@@ -1,18 +1,77 @@
-# UC-01c: Preiskalkulation + SaaS-Vermarktung — Dozenten-Hinweise
-> KI-Beauftragter · Tag 4 (Rechtliche Grundlagen II)
-> ⚠️ Nicht für Teilnehmende
+# UC-01c: Rechtliche Grundlagen & EU AI Act
+> KI-Beauftragter · KI-Manager
 
 ---
 
-## Einordnung
+## Szenario
+
+Das Bauplanungsbüro Dr. Seika hat das zugekaufte KI-System mit eigenen Kalkulationsdaten **fine-getuned**. Mit eigenen Projektdaten und Expertenschätzungen liefert das Modell jetzt automatisierte Preisvorschläge für Nachträge. Das System prüft nicht mehr nur Verträge — es kalkuliert Preise.
+
+Das System funktioniert so gut, dass auf einer Branchenmesse drei Geschäftsführer befreundeter Bauplanungsbüros fragen: *„Können wir euer System auch nutzen? Wir würden 500 € pro Monat zahlen."*
+
+Die Geschäftsführung sieht eine zweite Einnahmequelle und plant, das Tool als **„Akies"** als SaaS-Angebot zu vermarkten — mit eigenem Namen, eigener Marke, monatlicher Abrechnung. Marco Brandt, der KI-Beauftragte, soll eine Empfehlung aussprechen.
+
+---
+
+## Lernziele
+
+- Den Rollenwechsel von Betreiber zu Anbieter nach Art. 25 Abs. 1 EU AI Act erkennen und sicher begründen
+- Den Unterschied zwischen lit. a (eigener Name in Verkehr bringen — eindeutig) und lit. b (wesentliche Veränderung — auslegungsbedürftig) verstehen
+- Anbieterpflichten bei begrenztem Risiko benennen (Art. 50 Transparenz, Dokumentation, Vertragsgestaltung)
+- Geschäftsmodell-Risiken bei einer KMU-SaaS-Vermarktung einschätzen
+- Eskalationspunkte für den KI-Beauftragten identifizieren — und konkrete Empfehlungen an die Geschäftsführung formulieren
+
+---
+
+## Zwei Auslöser für den Rollenwechsel — Vergleich
+
+```
+Auslöser 1: Fine-Tuning (intern, ohne Vermarktung)
+└── Art. 25 Abs. 1 lit. b — „wesentliche Veränderung"
+    ├── Definitionsfrage: Wann ist eine Veränderung wesentlich?
+    ├── Im Einzelfall auslegungsbedürftig — Anwälte streiten
+    └── → Graubereich, im Zweifel Anwalt einschalten
+
+Auslöser 2: Vermarktung als „Seika BauPrice" (SaaS)
+└── Art. 25 Abs. 1 lit. a — „unter eigenem Namen in Verkehr bringen"
+    ├── Klare Rechtslage: kein Auslegungsspielraum
+    ├── Sobald Dritten angeboten → Anbieterstatus
+    └── → Eindeutig: Dr. Seika wird Anbieter
+```
+
+---
+
+## Diskussionsfragen
+
+**Welche Rolle nimmt Dr. Seika nach dem Verkauf rechtlich ein?**
+
+**Was ändert sich konkret durch den Anbieterstatus — bei einem System mit begrenztem Risiko?**
+
+**Was empfiehlt der KI-Beauftragte der Geschäftsführung? Pro, Contra, alternative Modelle?**
+
+**Was passiert, wenn ein Käufer das System für andere Zwecke einsetzt — z.B. für Personalentscheidungen?**
+
+---
+
+## Weiterführende Quellen
+
+- EU AI Act Art. 25 (Rollenwechsel): https://artificialintelligenceact.eu/article/25/
+- EU AI Act Art. 50 (Transparenzpflichten): https://artificialintelligenceact.eu/article/50/
+- EU AI Act Anhang IV (Technische Dokumentation): https://artificialintelligenceact.eu/annex/4/
+- GeschGehG: https://www.gesetze-im-internet.de/geschgehg/
+- Rohrlich, *KI und Recht*, Hanser 2024, S. 164–167
+
+---
+
+## Analyse & Hinweise
+
+### Einordnung
 
 **KI-System-Typ:** Fine-tuned Commercial AI mit anschließender SaaS-Vermarktung
 **Schwierigkeitsgrad:** Fortgeschrittene
 **Parallelfall:** UC-02c (WellSeal SAP-Integration) — beide zeigen Rollenwechsel in verschiedenen Branchen
 
----
-
-## Prüfdimensionen
+### Prüfdimensionen
 
 | Dimension | Bewertung | Details |
 |---|---|---|
@@ -24,9 +83,7 @@
 | **Halluzination bei Zahlen** | Kritisch | LLMs bei numerischen Ausgaben besonders fehleranfällig — relevant für Situation 3 (falscher Preis) |
 | **Verwendungszweck-Drift** | ⚠️ Wichtig | Was, wenn Käufer das System für Personalentscheidungen einsetzt? → Anhang III Nr. 4 könnte greifen, neue Rolle für Käufer |
 
----
-
-## Didaktische Hinweise
+### Didaktische Hinweise
 
 **Der zentrale Aha-Moment:** Vorher unterrichteten viele Materialien das Fine-Tuning als „klassischen" Auslöser für den Rollenwechsel. Das ist juristisch zu unscharf — Art. 25 Abs. 1 lit. b ist tatsächlich auslegungsbedürftig. Die SaaS-Vermarktung („Seika BauPrice") schafft einen **eindeutigen** Auslöser nach lit. a, an dem sich der Rollenwechsel didaktisch klar erklären lässt.
 
@@ -38,7 +95,7 @@
 
 ---
 
-## Empfohlene Diskussionsführung
+**Empfohlene Diskussionsführung**
 
 **Schritt 1 — Eindeutigkeit etablieren:**
 Bevor inhaltlich über Pro/Contra des Geschäftsmodells gesprochen wird: Klären, dass der Rollenwechsel hier *nicht zur Diskussion steht*. Sobald Dr. Seika SaaS verkauft, ist Dr. Seika Anbieter. Das ist Tatsache, nicht Meinung.
@@ -60,7 +117,7 @@ Was kommt auf Dr. Seika zu?
 
 ---
 
-## Empfohlener Eskalationsweg für Marco
+**Empfohlener Eskalationsweg für Marco**
 
 **Stufe 1** (KI-BA entscheidet selbst):
 - Das Geschäftsmodell strukturieren — Pro/Contra-Analyse, Zahlen aufstellen
@@ -76,9 +133,7 @@ Was kommt auf Dr. Seika zu?
 - Vertragsverhandlungen mit ersten Käufern
 - Falls später ein Schadensfall eintritt (siehe Situation 3 GA)
 
----
-
-## Verbindungen im Curriculum
+### Verbindungen im Curriculum
 
 - **Voraussetzungen:** UC-01a (Betreiber, Tag 1+3), UC-01b (Personalplanung, Tag 3)
 - **Theorieblock:** EU AI Act Akteursrollen (Tag 4), Art. 25 Rollenübergang (Tag 4)
