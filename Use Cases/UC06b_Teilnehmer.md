@@ -34,7 +34,11 @@ Analysiere jedes Unternehmen anhand des folgenden Rahmens:
 
 ## Die Unternehmen
 
-*(Unternehmensprofile folgen)*
+*"Mein Hauslehrer": Die KI bietet auf der Basis des Schulstoffs für Schülerinnen und Schüler individualisierte Lernprogramme an, die auf die jeweiligen Stärken und Schwächen abstellen - Reinforcement Learing
+*"Zeitreise": Die KI nimmt gescannte Fotos, von denen der Nutzer nicht weiss, wenn oder was sie wann zeigen und trifft eine Aussage: Zeitpunkt des Fotos, Ort, Personen (aus der Familie) auf dem Foto: Supervised Learning + CV + NLP
+*"Klangwelt": Ein Musikstreaming-Startup analysiert das Hörverhalten von einer Million Nutzern — ohne vorgegebene Genres. Das System entdeckt selbst, dass es Hörergruppen gibt, die niemand so definiert hatte: z.B. "Spät-Abend-Melancholiker" oder "Montagmorgen-Motivationstypen" -> Unsupervised Learning / Clustering
+*"Vertragsampel": App für juristische Laien, die z.B. Miet- oder Arbeitsverträge einliest und automatisch Klauseln markiert, die ungewöhnlich oder nachteilig sind — ohne dass der Nutzer Rechtskenntnisse braucht -> NLP, Text-Klassifikation. Performance-Frage: Recall ist entscheidend (kein nachteiliger Satz darf übersehen werden).
+*"Fälschungsradar": Ein Startup für Marktplätze (z.B. "Sammel Deinen Traum", Use Case 05) analysiert Produktfotos automatisch auf Fälschungsmerkmale — Nähte, Logos, Materialstruktur — die für Menschen schwer zu erkennen sind. Die Musterkomplexität erzwingt tiefe Architekturen. → Computer Vision + Deep Learning (hier ist Deep Learning tatsächlich die richtige Antwort, weil die Komplexität der visuellen Muster flachere Modelle überfordert).*
 
 ---
 
