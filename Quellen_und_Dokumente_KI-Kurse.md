@@ -10,7 +10,7 @@
 ### 1.1 EU AI Act & Regulierung
 | URL | Name | Typ | Schlagwörter |
 |-----|------|-----|--------------|
-| https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202401689 | EU AI Act Volltext (EUR-Lex) | Primärquelle | Regulation (EU) 2024/1689, Risikoklassen, KI-Beauftragter, Hochrisiko-KI |
+| https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202401689 | EU AI Act Volltext | Primärquelle | Regulation (EU) 2024/1689, Risikoklassen, KI-Beauftragter, Hochrisiko-KI |
 | https://digital-strategy.ec.europa.eu/de | EU AI Strategy (Kommission) | Sekundärquelle | EU-Digitalstrategie, AI Act Kontext, Vertrauenswürdige KI |
 | https://artificialintelligenceact.eu/ | EU AI Act Explorer (interaktiv) | Tool | Artikel-Browser, Paragraphensuche, Compliance-Prüfung |
 | https://www.bmi.bund.de/DE/themen/sicherheit/it-und-cybersicherheit/it-und-cybersicherheit-node.html | Bundesministerium des Ineren (BMI) | Behörde | Deutschland, Cybersicherheit |
@@ -150,6 +150,7 @@
 | AI Ethics and Governance in Practice | Turing Institute AI Ethics | 2024 |
 | GRC Capability Model | GRC Capability Model | 
 | KI in der Projektwirtschaft | Christian Bernert / Steffen Scheurer / Harald Wehnes (Hrg) | GPM | 2024 |
+| Hands-On Machine Learning with Scikit-Learn, Keras & TensorFlow | Aurelien Géron | O'Reilly | 2023 |
 
 ---
 
