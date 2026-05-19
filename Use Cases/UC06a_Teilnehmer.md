@@ -12,7 +12,7 @@ Monatlich landen **15–20 Investitionsvorschläge** auf Deinem Schreibtisch —
 
 **Das heutige Problem:** Die Grobprüfung eines Proposals dauert durchschnittlich 2–3 Stunden — Recherche zu Markt, Wettbewerbern, Technologie-Reifegrad und Gründer-Background. Bei 17 Proposals pro Monat bindet das mehr als 40 Analysten-Stunden allein für die Vorauswahl. Das sind Kapazitäten, die für tiefere Analysen fehlen.
 
-Dr. Vogt (Geschäftsführerin) hat Dich gebeten, ein KI-gestütztes Screening-System zu konzipieren, das die Phase-1-Bearbeitung deutlich beschleunigt — ohne die Entscheidungsqualität zu verschlechtern und eine rasche erste Berechnung des "Return on Investment" (RoI) ermöglicht.
+Dr. Vogt (Geschäftsführer) hat Dich gebeten, ein KI-gestütztes Screening-System zu konzipieren, das die Phase-1-Bearbeitung deutlich beschleunigt — ohne die Entscheidungsqualität zu verschlechtern — und gleichzeitig den wirtschaftlichen Nutzen dieser Investition als ROI-Berechnung zu belegen.
 
 ---
 
@@ -40,8 +40,8 @@ Wie stellst Du sicher, dass das System als Entscheidungsunterstützung — nicht
 **⑤ Risiken benennen**  
 Was könnte bei einem KI-gestützten Screening schief gehen? Benenne mindestens zwei konkrete Risiken und wie Du ihnen begegnest.
 
-**⑤ RoI berechnen=* 
-Berechne den **Return on Investment (ROI)** für die Einführung eines KI-gestützten Investment-Bewertungssystems bei der Aktiv-Invest (AI) GmbH. Nutze dafür das **ROI-Template (Excel)** oder den **interaktiven ROI-Rechner (HTML)** als Werkzeug.
+**⑥ ROI berechnen**  
+Berechne den **Return on Investment (ROI)** für die Einführung des KI-gestützten Screening-Systems bei der Aktiv-Invest (AI) GmbH. Nutze dafür das **ROI-Template (Excel)** oder den **interaktiven ROI-Rechner (HTML)** als Werkzeug. Die detaillierte Rechnung findest Du in den Schritten 1–6 am Ende dieses Dokuments.
 
 
 ---
@@ -61,11 +61,17 @@ Präsentiere Dein Konzept in einem strukturierten Dokument oder einer Kurzpräse
 
 Das Dokument soll u. a. beantworten:
 - Wie sieht das Screening-System aus? (Architektur, Quellen, Ausgabe)
-- Was ist die erwartete Zeitersparnis?
+- Was ist die erwartete Zeitersparnis — und was ist der ROI der Investition?
 - Welche Risiken gibt es — und wie geht das System damit um?
 - Was brauchen wir als nächsten Schritt (Phase 2)?
 
 ---
+
+---
+
+## Teil B — ROI-Berechnung
+
+*Die folgenden Schritte liefern das Zahlenfundament für Aufgabe ⑥ und den Business-Case-Baustein "Kosten & Nutzen" in Aufgabe ⑥.*
 
 ### Schritt 1 — IST-Prozesskosten ermitteln
 
@@ -106,9 +112,9 @@ Schätze die Kosten für Aufbau und Betrieb des Systems:
 | Datenvorbereitung & Integration (Crunchbase-API, interne DB) | 15.000 € |
 | Schulung & Change Management | 5.000 € |
 | **Einmalige Investition gesamt** | **75.000 €** |
-| Infrastruktur & Cloud / Jahr | 12.000 € |
-| Wartung, Modell-Pflege, Updates / Jahr | 8.000 € |
-| **Jährl. Betriebskosten** | **20.000 €** |
+| Cloud-Infrastruktur / Jahr | 8.000 € |
+| Updates, Re-Training & Fine-Tuning / Jahr | 7.000 € |
+| **Jährl. Betriebskosten** | **15.000 €** |
 
 ---
 

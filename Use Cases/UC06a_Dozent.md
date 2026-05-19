@@ -72,7 +72,7 @@ Analyst entscheidet in 15–20 Min → Go/No-Go
 - SOLL: 0,75 h (Durchsicht Profil + Entscheidung) × 204/Jahr = 153 h/Jahr
 - Einsparung: **357 h/Jahr** — entspricht ~0,2 FTE
 
-**Wichtig für Teilnehmende:** Diese Zahlen sind ein grober Richtwert. In der Detailbewertung (UC-06b, Phase 2) wird das Modell präzisiert.
+**Wichtig für Teilnehmende:** Diese Zahlen sind ein grober Richtwert. Die vollständige ROI-Rechnung (Phase 1 + Phase 2 kombiniert) ist Bestandteil von UC-06a Teil B — die Gesamteinsparung beträgt 124.848 €/Jahr (1.836 h × 120 €/h Differenz IST/SOLL).
 
 ---
 
@@ -93,6 +93,7 @@ Analyst entscheidet in 15–20 Min → Go/No-Go
 
 | UC | Thema | Verbindung |
 |---|---|---|
-| UC-06b | ROI + DCF Phase 2 | Proposals, die Phase 1 bestehen, kommen in Phase 2 — das ist die Grundlage für die ROI-Rechnung in Tag 5 |
+| UC-06a Teil B | ROI-Berechnung (in diesem UC integriert) | Die vollständige ROI-Rechnung (Schritt 1–6) ist Bestandteil dieses Use Cases — Tag 5 |
+| UC-06b | KI-Modelle verstehen & bewerten | Woche 2, Tag 6 — nutzt Portfoliounternehmen der AI GmbH als Analysebeispiele |
 | UC-04a (SolidFinanz) | Schatten-KI-Inventur | Ähnliche Architektur-Frage: Was macht das System, welche Daten fließen wohin? |
 | UC-06c | Portfoliomonitoring | Phase 3 nutzt ähnliche Dateninfrastruktur (strukturierte KPIs), aber für bestehende Investments |
