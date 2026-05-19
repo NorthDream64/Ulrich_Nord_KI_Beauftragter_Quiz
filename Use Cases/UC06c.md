@@ -1,5 +1,4 @@
 # UC-06c: Aktiv-Invest (AI) GmbH — KI-gestütztes Portfoliomonitoring
-> KI-Manager angewandte Transformation
 
 ---
 

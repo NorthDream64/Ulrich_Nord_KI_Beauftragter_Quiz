@@ -1,5 +1,4 @@
 # UC-04a: SolidFinanz AG — KI-Strategie & Schatten-KI-Inventur
-> KI-Beauftragter · KI-Manager
 
 ---
 

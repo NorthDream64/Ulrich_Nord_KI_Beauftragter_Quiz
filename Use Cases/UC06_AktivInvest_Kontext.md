@@ -1,5 +1,4 @@
 # Aktiv-Invest (AI) GmbH
-> alfatraining · KI-Manager / KI-Manager angewandte Transformation
 > ⚠️ Fiktives Unternehmen — alle Namen und Details sind für Schulungszwecke erstellt
 
 ---

@@ -1,5 +1,4 @@
 # UC-06b: Aktiv-Invest (AI) GmbH — KI-Modelle verstehen und bewerten
-> KI-Manager · Woche 2, Tag 6
 
 ---
 

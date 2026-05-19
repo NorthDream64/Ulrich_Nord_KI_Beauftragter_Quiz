@@ -1,5 +1,4 @@
 # UC-02 Unternehmensakte — Schiffszulieferer WellSeal GmbH
-> KI-Beauftragter
 > ⚠️ Fiktives Unternehmen — alle Namen und Details sind für Schulungszwecke erstellt
 
 ---

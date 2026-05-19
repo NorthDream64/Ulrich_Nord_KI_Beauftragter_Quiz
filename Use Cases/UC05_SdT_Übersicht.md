@@ -1,5 +1,4 @@
 # UC-05: Sammel Deinen Traum (SdT GmbH)
-> KI-Beauftragter · KI-Manager
 
 ---
 
