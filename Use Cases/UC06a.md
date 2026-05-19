@@ -1,5 +1,4 @@
 # UC-06a: Aktiv-Invest (AI) GmbH — Go/No-Go-Screening
-> KI-Manager · Woche 1, Tag 3
 
 ---
 
